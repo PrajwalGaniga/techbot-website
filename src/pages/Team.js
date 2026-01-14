@@ -83,7 +83,7 @@ const Team = () => {
   ];
 
   const techLeads = [
-    { name: "Mukta", role: "Software Lead", dept: "AI & Embedded Systems", image: muktaImg },
+    { name: "Muktha", role: "Software Lead", dept: "AI & Embedded Systems", image: muktaImg },
     { name: "Abhishek", role: "Electronics Lead", dept: "Hardware Design", image: abhishekImg },
     { name: "Gangothri", role: "Software Co-Lead", dept: "Implementation", image: gangothriImg },
     { name: "Mohith K U", role: "Documentation Lead", dept: "Technical Records", image: mohithImg },
