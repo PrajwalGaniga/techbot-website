@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react'; // 1. Added useCallback import
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Achievements.css';
 
@@ -44,56 +44,53 @@ const Achievements = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   
   const data = [
-  {
-    title: "First Prize – SRINATHON 2.0",
-    tag: "International Hackathon",
-    event: "Organized by SSOSC and Nexus",
-    desc: "Secured First Place in a 24-hour international-level hackathon, showcasing innovation, endurance, and technical excellence in a competitive environment.",
-    img: srinathonImg
-  },
-  {
-    title: "Top 40 Teams – Ideas to Impact 2.0",
-    tag: "National Recognition",
-    event: "IIT Madras",
-    desc: "Selected among the Top 40 teams nationwide for an AI-powered smart waste management solution using CNNs, gaining exposure to interdisciplinary collaboration.",
-    img: iitImg
-  },
-  {
-    title: "Project Representation – Infosys",
-    tag: "Industry Showcase",
-    event: "Infosys DK Campus",
-    desc: "Proudly represented the LUNA semi-humanoid robot at the Infosys DK Campus, demonstrating advanced robotics integration to industry leaders.",
-    img: infosysImg
-  },
-
-  // 🆕 SIH 2025 Achievement
-  {
-    title: "Shortlisted for SIH 2025 Grand Finale",
-    tag: "Smart India Hackathon",
-    event: "Ministry of Fisheries, Animal Husbandry & Dairying",
-    desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale for the project 'Digital Farm Management Portal for Implementing Biosecurity Measures in Pig/Poultry'. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
-    img: sihImg
-  },
-
-  // 🆕 AIGNITE 2.0
-  {
-    title: "Participation – AIGNITE 2.0",
-    tag: "National Level Project Expo",
-    event: "AIGNITE 2.0",
-    desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation and peer learning.",
-    img: aigniteImg
-  },
-
- 
-];
-
+    {
+      title: "First Prize – SRINATHON 2.0",
+      tag: "International Hackathon",
+      event: "Organized by SSOSC and Nexus",
+      desc: "Secured First Place in a 24-hour international-level hackathon, showcasing innovation, endurance, and technical excellence in a competitive environment.",
+      img: srinathonImg
+    },
+    {
+      title: "Top 40 Teams – Ideas to Impact 2.0",
+      tag: "National Recognition",
+      event: "IIT Madras",
+      desc: "Selected among the Top 40 teams nationwide for an AI-powered smart waste management solution using CNNs, gaining exposure to interdisciplinary collaboration.",
+      img: iitImg
+    },
+    {
+      title: "Project Representation",
+      tag: "Industry Showcase",
+      event: "Infosys DK Campus",
+      desc: "Proudly represented the LUNA semi-humanoid robot at the Infosys DK Campus, demonstrating advanced robotics integration to industry leaders.",
+      img: infosysImg
+    },
+      // 🆕 SIH 2025 Achievement
+          {
+            title: "Shortlisted for SIH 2025 Grand Finale",
+            tag: "Smart India Hackathon",
+            event: "Ministry of Fisheries, Animal Husbandry & Dairying",
+            desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale for the project 'Digital Farm Management Portal for Implementing Biosecurity Measures in Pig/Poultry'. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
+            img: sihImg
+          },
+        
+          // 🆕 AIGNITE 2.0
+          {
+            title: "Participation – AIGNITE 2.0",
+            tag: "National Level Project Expo",
+            event: "AIGNITE 2.0",
+            desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation and peer learning.",
+            img: aigniteImg
+          },
+  ];
 
   // We only care about the index, the direction helps animation
   const idx = Math.abs(page % data.length);
 
-  const paginate = (newDirection) => {
+  // 2. Wrapped paginate in useCallback to satisfy ESLint
+  const paginate = useCallback((newDirection) => {
     setPage([page + newDirection, newDirection]);
-  };
+  }, [page]); 
 
   // Auto-play
   useEffect(() => {
@@ -101,15 +98,15 @@ const Achievements = () => {
       paginate(1);
     }, 6000); // Change slide every 6 seconds
     return () => clearInterval(timer);
-  }, [page]);
+  }, [paginate]); // 3. Added paginate to dependency array
 
-  // Animation variants - Optimized for smoothness
+  // Animation variants
   const variants = {
     enter: (direction) => ({
-      x: direction > 0 ? 300 : -300, // Reduced distance for faster perception
+      x: direction > 0 ? 300 : -300, 
       opacity: 0,
       scale: 0.9,
-      filter: "blur(10px)", // Add blur for premium feel
+      filter: "blur(10px)", 
       zIndex: 0
     }),
     center: {
@@ -119,7 +116,7 @@ const Achievements = () => {
       scale: 1,
       filter: "blur(0px)",
       transition: {
-        x: { type: "spring", stiffness: 200, damping: 25 }, // Smoother spring
+        x: { type: "spring", stiffness: 200, damping: 25 },
         opacity: { duration: 0.5 },
         scale: { duration: 0.5 },
         filter: { duration: 0.4 }
