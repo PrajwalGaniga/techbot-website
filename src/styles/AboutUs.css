@@ -1,0 +1,805 @@
+/* =========================================
+   ABOUT US - "THE BRIEFING" THEME
+   ========================================= */
+
+/* --- 1. HERO SECTION (Scene 01) --- */
+.about-page {
+  padding-top: 80px; /* Offset for fixed header */
+  background-color: var(--bg-main, #030712);
+  overflow-x: hidden;
+}
+
+.about-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  position: relative;
+  /* Subtle grid background */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.manifesto-container {
+  max-width: 900px;
+  text-align: center;
+  z-index: 2;
+}
+
+.section-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 20px;
+}
+
+.story-heading {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--text-main, #fff);
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-muted, #94a3b8);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-text strong {
+  color: var(--accent-primary, #0ea5e9);
+  font-weight: 600;
+}
+
+/* --- 2. SKILLS (System Diagnostics) --- */
+.skills-diagnostics {
+  padding: 100px 10%;
+  background: var(--bg-secondary, #0b1121);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+.skill-bar-container {
+  margin-bottom: 10px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--text-main, #fff);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.progress-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary, #0ea5e9), var(--accent-secondary, #6366f1));
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+}
+
+/* --- 3. MENTORS (The Visionaries) --- */
+.leadership-journey {
+  padding: 120px 5%;
+  background: var(--bg-main, #030712);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--text-main, #fff);
+  margin-top: 10px;
+}
+
+.mentor-deck {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.ace-card {
+  background: rgba(30, 41, 59, 0.3); /* Glass */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 30px;
+  width: 350px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ace-card:hover {
+  border-color: var(--accent-primary, #0ea5e9);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.mentor-portrait {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-primary, #0ea5e9);
+  margin-bottom: 20px;
+}
+
+.mentor-meta h4 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: var(--text-main, #fff);
+}
+
+.role-tag {
+  color: var(--accent-secondary, #6366f1);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.mentor-bio-text {
+  margin: 20px 0;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.expertise-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-pill {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: var(--text-muted, #94a3b8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- 4. STATS (Impact Logs) --- */
+.impact-logs {
+  padding: 80px 5%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, var(--bg-main) 0%, var(--bg-secondary) 50%, var(--bg-main) 100%);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.impact-value {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  background: linear-gradient(180deg, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+.impact-label {
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* --- 5. ACHIEVEMENTS (The Cinema) --- */
+.achievements-cinema {
+  padding: 120px 0;
+  background: var(--bg-secondary, #0b1121);
+  overflow: hidden;
+}
+
+.cinema-slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cinema-slide {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.cinema-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide-bg-visible {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 6s ease;
+}
+
+.cinema-slide.active .slide-bg-visible {
+  transform: scale(1.1); /* Slow zoom effect */
+}
+
+.overlay-dimmer {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(3, 7, 18, 0.199) 90%);
+  z-index: 2;
+}
+
+.slide-content-glass {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  z-index: 3;
+  max-width: 600px;
+}
+
+.victory-tag {
+  background: var(--accent-primary, #0ea5e9);
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.slide-content-glass h4 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+.event-meta {
+  color: var(--accent-primary, #0ea5e9);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.event-desc {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Nav Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-arrow:hover {
+  background: var(--accent-primary, #0ea5e9);
+  border-color: var(--accent-primary, #0ea5e9);
+}
+
+.nav-arrow.left { left: 20px; }
+.nav-arrow.right { right: 20px; }
+
+/* --- 6. FAQ (Terminal) --- */
+.faq-terminal {
+  padding: 120px 5%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-container {
+  margin-top: 40px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  border-color: var(--accent-primary, #0ea5e9);
+}
+
+.faq-question {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-main, #fff);
+}
+
+.toggle {
+  color: var(--accent-primary, #0ea5e9);
+  font-size: 1.5rem;
+}
+
+.faq-answer {
+  padding: 0 25px 25px;
+  color: var(--text-muted, #94a3b8);
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .story-heading { font-size: 2.5rem; }
+  .cinema-slider-container { height: 600px; }
+  .slide-content-glass { bottom: 30px; left: 20px; right: 20px; }
+  .slide-content-glass h4 { font-size: 1.8rem; }
+  .nav-arrow { width: 40px; height: 40px; }
+}
+
+/* =========================================
+   ABOUT US - "THE BRIEFING" THEME
+   ========================================= */
+
+/* --- 1. HERO SECTION (Scene 01) --- */
+.about-page {
+  padding-top: 80px; /* Offset for fixed header */
+  background-color: var(--bg-main, #030712);
+  overflow-x: hidden;
+}
+
+.about-hero {
+  min-height: 85vh; /* Slightly taller for grandeur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  position: relative;
+  
+  /* Cyber-grid background */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  
+  /* Radial vignette for focus */
+  background: radial-gradient(circle at center, rgba(3, 7, 18, 0.8) 0%, #030712 100%);
+}
+
+.manifesto-container {
+  max-width: 950px;
+  text-align: center;
+  z-index: 2;
+}
+
+.section-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  padding: 8px 18px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 30px;
+  backdrop-filter: blur(4px);
+}
+
+/* --- THE GRADIENT TITLE --- */
+.story-heading {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  
+  /* Premium White -> Blue Gradient */
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-primary, #0ea5e9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  filter: drop-shadow(0 0 30px rgba(14, 165, 233, 0.3));
+}
+
+.hero-text {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-muted, #94a3b8);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.hero-text strong {
+  color: var(--accent-primary, #0ea5e9);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+/* --- 2. SKILLS (System Diagnostics) --- */
+.skills-diagnostics {
+  padding: 100px 10%;
+  background: var(--bg-secondary, #0b1121);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px;
+  max-width: 1100px;
+  margin: 50px auto 0;
+}
+
+.skill-bar-container {
+  margin-bottom: 15px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.progress-bg {
+  width: 100%;
+  height: 10px; /* Slightly thicker for impact */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary, #0ea5e9), var(--accent-secondary, #6366f1));
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+}
+
+/* --- 3. MENTORS (The Visionaries) --- */
+.leadership-journey {
+  padding: 140px 5%;
+  background: var(--bg-main, #030712);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-family: var(--font-heading);
+  color: #fff;
+  margin-top: 15px;
+}
+
+.mentor-deck {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.ace-card {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 40px;
+  width: 380px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.ace-card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.mentor-portrait {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-primary);
+  margin-bottom: 25px;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+.mentor-meta h4 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: #fff;
+  font-family: var(--font-heading);
+}
+
+/* --- 4. STATS (Impact Logs) --- */
+.impact-logs {
+  padding: 100px 5%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, #030712 0%, #0f172a 50%, #030712 100%);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 40px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.impact-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(180deg, #fff, #64748b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 12px;
+}
+
+/* --- 5. ACHIEVEMENTS (Cinema) --- */
+.achievements-cinema {
+  padding: 140px 0;
+  background: var(--bg-secondary);
+}
+
+.cinema-slider-container {
+  width: 90%;
+  max-width: 1200px;
+  height: 600px; /* Taller for cinematic feel */
+  border-radius: 30px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.slide-content-glass {
+  background: rgba(3, 7, 18, 0.85); /* Darker glass for readability */
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 700px;
+}
+
+.slide-content-glass h4 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+/* --- 6. FAQ (Terminal) --- */
+.faq-terminal {
+  padding: 140px 5%;
+  max-width: 900px;
+}
+
+.faq-item {
+  background: rgba(30, 41, 59, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 20px;
+  border-radius: 16px;
+}
+
+.faq-question {
+  padding: 25px 30px;
+  font-size: 1.1rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .story-heading { font-size: 2.8rem; }
+  .cinema-slider-container { height: 550px; }
+  .slide-content-glass { padding: 25px; bottom: 20px; left: 20px; right: 20px; }
+  .slide-content-glass h4 { font-size: 1.8rem; }
+  .ace-card { width: 100%; }
+}
+/* --- 5. ACHIEVEMENTS (The Cinema - Restored) --- */
+.achievements-cinema {
+  padding: 120px 0;
+  background: var(--bg-secondary, #0b1121);
+  overflow: hidden;
+}
+
+.cinema-slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cinema-slide {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.cinema-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide-bg-visible {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 6s ease;
+}
+
+.cinema-slide.active .slide-bg-visible {
+  transform: scale(1.1); /* Slow zoom effect */
+}
+
+.overlay-dimmer {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(3, 7, 18, 0.95) 90%);
+  z-index: 2;
+}
+
+.slide-content-glass {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  z-index: 3;
+  max-width: 600px;
+  background: rgba(3, 7, 18, 0.6); /* Restored transparency */
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.victory-tag {
+  background: var(--accent-primary, #0ea5e9);
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.slide-content-glass h4 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+.event-meta {
+  color: var(--accent-primary, #0ea5e9);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.event-desc {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Nav Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-arrow:hover {
+  background: var(--accent-primary, #0ea5e9);
+  border-color: var(--accent-primary, #0ea5e9);
+}
+
+.nav-arrow.left { left: 20px; }
+.nav-arrow.right { right: 20px; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .cinema-slider-container { height: 600px; }
+  .slide-content-glass { bottom: 30px; left: 20px; right: 20px; }
+  .slide-content-glass h4 { font-size: 1.8rem; }
+}

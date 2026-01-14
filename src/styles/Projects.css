@@ -1,0 +1,941 @@
+/* =========================================
+   PROJECTS PAGE - "TECH SHOWCASE"
+   ========================================= */
+
+.projects-page {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+}
+
+/* --- HERO SECTION --- */
+.projects-hero {
+  padding: 100px 5%;
+  text-align: center;
+  background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle data grid background */
+.projects-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 20px;
+}
+
+.projects-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.projects-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* --- PROJECTS GRID --- */
+.projects-grid-section {
+  padding: 60px 5% 120px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.project-full-card {
+  background: var(--bg-card, rgba(30, 41, 59, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Uniform height */
+}
+
+.project-full-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-primary, #0ea5e9);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Image Container */
+.project-image-box {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-full-card:hover .project-image-box img {
+  transform: scale(1.08);
+}
+
+.image-overlay-glow {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(14, 165, 233, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-full-card:hover .image-overlay-glow {
+  opacity: 1;
+}
+
+/* Content Box */
+.project-content-box {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensures buttons/tags align at bottom */
+}
+
+.project-tag-pill {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  color: var(--accent-secondary, #6366f1);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.project-content-box h2 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.project-content-box p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+/* Tech Stack Tags */
+.tech-stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tech-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+.project-full-card:hover .tech-item {
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--accent-primary, #0ea5e9);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .projects-hero {
+    padding: 80px 5%;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr; /* Full width cards on mobile */
+    gap: 30px;
+  }
+  .project-content-box {
+    padding: 25px;
+  }
+}
+/* =========================================
+   PROJECTS PAGE - "3D COVERFLOW"
+   ========================================= */
+
+.projects-page {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Essential for 3D bounds */
+}
+
+/* --- HERO SECTION --- */
+.projects-hero {
+  padding: 60px 5% 40px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.section-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 50px;
+  background: rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.projects-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  
+  /* Premium Gradient */
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-primary, #0ea5e9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.4));
+}
+
+.projects-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- 3D CAROUSEL STAGE --- */
+.carousel-stage {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  perspective: 1000px; /* The magic number for 3D depth */
+  overflow: visible;
+  padding: 40px 0 80px;
+  width: 100%;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Height of the tallest card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+/* --- PROJECT CARD (3D Item) --- */
+.project-card-3d {
+  position: absolute;
+  width: 350px;
+  height: 500px;
+  background: var(--bg-card, rgba(30, 41, 59, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  cursor: pointer;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Active Card Highlights */
+.project-card-3d.active {
+  border-color: var(--accent-primary, #0ea5e9);
+  box-shadow: 0 0 40px rgba(14, 165, 233, 0.3);
+  z-index: 100; /* Ensure it's on top */
+}
+
+/* Image Section */
+.card-image-wrapper {
+  width: 100%;
+  height: 55%;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card-3d:hover .card-image-wrapper img {
+  transform: scale(1.1);
+}
+
+/* Info Section */
+.card-info {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0) 0%, rgba(3, 7, 18, 0.8) 100%);
+}
+
+.p-tag {
+  color: var(--accent-secondary, #6366f1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.card-info h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.card-info p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit text lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tech-row {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-pill {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #ccc;
+}
+
+/* --- CONTROLS --- */
+.carousel-controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  z-index: 20;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.control-btn:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .project-card-3d {
+    width: 280px;
+    height: 420px;
+  }
+  
+  .carousel-container {
+    height: 420px;
+  }
+}
+/* =========================================
+   PROJECTS PAGE - HYBRID LAYOUT (FIXED)
+   ========================================= */
+
+.projects-page {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.projects-hero {
+  padding: 80px 5% 40px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.section-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 50px;
+  background: rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.projects-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-primary, #0ea5e9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.4));
+}
+
+.projects-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   MODE 1: DESKTOP GRID (Standard & Clean)
+   ========================================= */
+.desktop-grid-container {
+  padding: 40px 8% 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  /* The "Normal" Grid Layout */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.project-card-standard {
+  background: var(--bg-card, rgba(30, 41, 59, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures consistent height in row */
+}
+
+.project-card-standard:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.card-img-standard {
+  width: 100%;
+  height: 240px; /* Fixed height for clean grid */
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-img-standard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card-standard:hover .card-img-standard img {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   MODE 2: MOBILE 3D CAROUSEL (Coverflow)
+   ========================================= */
+.mobile-carousel-stage {
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  perspective: 1000px; /* Depth */
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+/* The Mobile Card Wrapper (Absolute positioning needed for stack) */
+.mobile-card-wrapper {
+  position: absolute;
+  width: 280px;
+  height: 460px;
+  /* Motion handles transform, we just set base layout */
+}
+
+.project-card-3d {
+  width: 100%;
+  height: 100%;
+  background: #0f172a; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inactive Overlay (Darken side cards) */
+.project-card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.6);
+  z-index: 5;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.mobile-card-wrapper.active {
+  z-index: 100; /* Bring active to front */
+}
+
+.mobile-card-wrapper.active .project-card-3d {
+  border-color: var(--accent-primary);
+  background: #1e293b;
+}
+
+.mobile-card-wrapper.active .project-card-3d::after {
+  opacity: 0; /* Remove dark overlay on active */
+}
+
+/* Hide text on inactive cards for cleaner look */
+.project-card-3d .card-info {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.mobile-card-wrapper.active .card-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-img-3d {
+  width: 100%;
+  height: 55%;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-img-3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- SHARED CONTENT STYLES --- */
+.card-info {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.p-tag {
+  color: var(--accent-secondary, #6366f1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.card-info h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.card-info p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tech-row {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-pill {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #cbd5e1;
+}
+
+/* --- CONTROLS (Mobile Only) --- */
+.carousel-controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+/* Hide/Show logic is handled via React rendering, 
+   but this ensures layout safety */
+@media (min-width: 769px) {
+  .carousel-controls { display: none; }
+}
+/* =========================================
+   PROJECTS PAGE - HYBRID LAYOUT (FINAL)
+   ========================================= */
+
+.projects-page {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.projects-hero {
+  padding: 80px 5% 40px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.section-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 50px;
+  background: rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.projects-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-primary, #0ea5e9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.4));
+}
+
+.projects-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   MODE 1: DESKTOP GRID (Standard & Clean)
+   ========================================= */
+.desktop-grid-container {
+  padding: 40px 8% 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.project-card-standard {
+  background: var(--bg-card, rgba(30, 41, 59, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card-standard:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.card-img-standard {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-img-standard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card-standard:hover .card-img-standard img {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   MODE 2: MOBILE SCROLL SNAP CAROUSEL
+   ========================================= */
+.mobile-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 5% 60px; /* Padding creates space for snap alignment */
+  gap: 20px;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+  scrollbar-width: none; /* Firefox */
+  width: 100%;
+}
+
+.mobile-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Wrapper ensures the card takes up correct width */
+.mobile-card-wrapper {
+  flex: 0 0 85vw; /* Each card takes 85% of screen width */
+  scroll-snap-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+  transform-origin: center center;
+}
+
+/* The Card Styling */
+.project-card-mobile {
+  background: #0f172a; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  height: 480px; /* Fixed height for consistency */
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+/* --- FOCUS EFFECT (Managed via JS class) --- */
+/* Inactive cards are smaller and dimmer */
+.mobile-card-wrapper {
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
+/* Active center card pops out */
+.mobile-card-wrapper.active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+}
+
+.mobile-card-wrapper.active .project-card-mobile {
+  border-color: var(--accent-primary);
+  box-shadow: 0 15px 50px rgba(14, 165, 233, 0.25);
+  background: #1e293b;
+}
+
+.card-img-mobile {
+  width: 100%;
+  height: 55%;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-img-mobile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- SHARED TEXT STYLES --- */
+.card-info {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.p-tag {
+  color: var(--accent-secondary, #6366f1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.card-info h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.card-info p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tech-row {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-pill {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #cbd5e1;
+}
+
+/* Hide desktop grid on mobile */
+@media (max-width: 768px) {
+  .desktop-grid-container { display: none; }
+}
+
+/* Hide mobile scroll on desktop */
+@media (min-width: 769px) {
+  .mobile-scroll-container { display: none; }
+}

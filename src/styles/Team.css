@@ -1,0 +1,571 @@
+/* =========================================
+   TEAM PAGE - "COMMAND CENTER" THEME
+   ========================================= */
+
+.team-container {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+}
+
+/* --- HERO SECTION --- */
+.team-hero {
+  text-align: center;
+  padding: 80px 5%;
+  background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1) 0%, transparent 60%);
+  position: relative;
+}
+
+.team-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.gold-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-secondary, #6366f1);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 50px;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.team-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.team-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- TIER SECTIONS --- */
+.team-tier {
+  padding: 60px 10%;
+  margin-bottom: 40px;
+}
+
+.team-tier.alt-dark {
+  background: var(--bg-secondary, #0b1121);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tier-title {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 2rem;
+  color: var(--text-main, #fff);
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--accent-primary, #0ea5e9);
+  padding-left: 20px;
+}
+
+/* --- MENTOR CARDS (Horizontal Layout) --- */
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.mentor-card {
+  display: flex;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.mentor-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-primary, #0ea5e9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.profile-photo {
+  width: 140px;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.3s;
+}
+
+.mentor-card:hover .profile-photo {
+  filter: grayscale(0%);
+}
+
+.m-text {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.m-tag {
+  color: var(--accent-primary, #0ea5e9);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.m-text h4 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.m-text h5 {
+  font-size: 0.9rem;
+  color: var(--text-muted, #94a3b8);
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.m-text p {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* --- STUDENT & EXECUTIVE CARDS (Vertical) --- */
+.student-grid, .leads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.student-card {
+  background: var(--bg-card, rgba(30, 41, 59, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.student-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.student-card:hover {
+  background: rgba(30, 41, 59, 0.6);
+  transform: translateY(-5px);
+}
+
+.student-card:hover::before {
+  opacity: 1;
+}
+
+.profile-photo-sq {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px; /* Soft square */
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-photo-sm {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.student-card h4 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.s-role {
+  display: block;
+  color: var(--accent-secondary, #6366f1);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.s-dept {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted, #94a3b8);
+}
+
+/* Executive Specifics */
+.tier-2 {
+  border-color: rgba(99, 102, 241, 0.3); /* Purple hint for executives */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .mentor-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-photo {
+    width: 100%;
+    height: 200px;
+  }
+  .team-tier {
+    padding: 60px 5%;
+  }
+}
+/* =========================================
+   TEAM PAGE - "COMMAND CENTER" THEME
+   ========================================= */
+
+.team-container {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+}
+
+/* --- HERO SECTION --- */
+.team-hero {
+  text-align: center;
+  padding: 100px 5%;
+  background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1) 0%, transparent 60%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid overlay pattern */
+.team-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.gold-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-secondary, #6366f1);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 50px;
+  background: rgba(99, 102, 241, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.team-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  
+  /* The Gradient: White (Left) -> Soft Blue (Right) */
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-primary, #0ea5e9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.4));
+}
+
+.team-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- TIER SECTIONS --- */
+.team-tier {
+  padding: 80px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.team-tier.alt-dark {
+  background: var(--bg-secondary, #0b1121);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  /* Make full width background but content centered */
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Wrapper inside alt-dark to constrain width */
+.tier-inner-wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.tier-title {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 2.2rem;
+  color: var(--text-main, #fff);
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--accent-primary, #0ea5e9);
+  padding-left: 20px;
+  position: relative;
+}
+
+/* --- MENTOR CARDS (Horizontal Layout) --- */
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.mentor-card {
+  display: flex;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(10px);
+}
+
+.mentor-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-primary, #0ea5e9);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-photo {
+  width: 160px;
+  min-width: 160px;
+  height: auto;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.4s;
+}
+
+.mentor-card:hover .profile-photo {
+  filter: grayscale(0%);
+}
+
+.m-text {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.m-tag {
+  color: var(--accent-primary, #0ea5e9);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.m-text h4 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 5px;
+  font-family: var(--font-heading);
+}
+
+.m-text h5 {
+  font-size: 0.95rem;
+  color: var(--text-muted, #94a3b8);
+  font-weight: 400;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.m-text p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* --- STUDENT & EXECUTIVE CARDS (Vertical) --- */
+.student-grid, .leads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.student-card {
+  background: var(--bg-card, rgba(30, 41, 59, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.student-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.student-card:hover {
+  background: rgba(30, 41, 59, 0.7);
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+}
+
+.student-card:hover::before {
+  opacity: 1;
+}
+
+.profile-photo-sq {
+  width: 130px;
+  height: 130px;
+  border-radius: 24px; /* Squircle */
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.4s;
+}
+
+.profile-photo-sm {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%; /* Circle */
+  object-fit: cover;
+  margin-bottom: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  transition: transform 0.4s;
+}
+
+.student-card:hover .profile-photo-sq,
+.student-card:hover .profile-photo-sm {
+  transform: scale(1.05);
+  border-color: var(--accent-primary);
+}
+
+.student-card h4 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.s-role {
+  display: block;
+  color: var(--accent-secondary, #6366f1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.s-focus, .s-dept {
+  font-size: 0.85rem;
+  color: var(--text-muted, #94a3b8);
+  line-height: 1.4;
+}
+
+.s-dept {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Executive Specifics */
+.tier-2 {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 992px) {
+  .mentor-grid {
+    grid-template-columns: 1fr; /* Single column on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .team-hero {
+    padding: 80px 5%;
+  }
+  
+  .mentor-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-photo {
+    width: 100%;
+    height: 250px; /* Taller image on mobile card */
+    min-width: unset;
+  }
+  
+  .m-text {
+    padding: 25px;
+  }
+  
+  .student-grid, .leads-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Slightly smaller min width */
+    gap: 20px;
+  }
+  
+  .team-tier {
+    padding: 60px 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-grid, .leads-grid {
+    grid-template-columns: 1fr; /* Full stack on very small screens */
+  }
+}
