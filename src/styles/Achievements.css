@@ -253,3 +253,233 @@
   .nav-arrow.left { left: 30%; }
   .nav-arrow.right { right: 30%; }
 }
+
+/* =========================================
+   ACHIEVEMENTS PAGE - "HALL OF FAME"
+   ========================================= */
+
+.achieve-page {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- HERO SECTION --- */
+.achieve-hero {
+  text-align: center;
+  padding: 80px 5% 40px;
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+}
+
+.gold-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 8px 18px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+}
+
+.achieve-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-primary, #0ea5e9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.4));
+}
+
+.achieve-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- CAROUSEL SECTION --- */
+.carousel-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 5% 100px;
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* VIEWPORT */
+.slide-viewport {
+  width: 100%;
+  height: 680px; /* Taller for mobile text */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* MAIN CARD (Now Clickable) */
+.achievement-card-clear {
+  position: absolute;
+  width: 100%;
+  max-width: 800px;
+  background: var(--bg-card, rgba(30, 41, 59, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+  transform-style: preserve-3d;
+  cursor: pointer; /* Indicates Clickability */
+}
+
+/* GLOW EFFECT ON CARD */
+.achievement-card-clear::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 30px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* IMAGE BOX */
+.clear-img-box {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  background: #000;
+}
+
+.clear-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.achievement-card-clear:hover .clear-img-box img {
+  transform: scale(1.05);
+}
+
+/* BADGE */
+.img-tag-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(3, 7, 18, 0.85);
+  color: var(--accent-primary, #0ea5e9);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* CONTENT BELOW */
+.content-box-below {
+  text-align: center;
+}
+
+.content-box-below h2 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: #fff;
+  background: linear-gradient(180deg, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.event-sub {
+  color: var(--accent-secondary, #6366f1);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.content-box-below p {
+  color: var(--text-muted, #94a3b8);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Tap Hint */
+.tap-hint {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .achievement-card-clear {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .achieve-hero { padding: 60px 5% 20px; }
+  
+  /* Increased height to fit all content on mobile */
+  .slide-viewport { height: 750px; } 
+  
+  .clear-img-box { height: 220px; }
+  .content-box-below h2 { font-size: 1.6rem; }
+}

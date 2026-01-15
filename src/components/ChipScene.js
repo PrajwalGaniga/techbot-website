@@ -202,7 +202,8 @@ export default function ChipScene() {
       background: 'transparent' // Let the section gradient show through
     }}>
       <Canvas 
-        camera={{ position: [4, 5, 5], fov: 45 }}
+        // UPDATED: Closer camera position [2.5, 3, 3] to make object look bigger
+        camera={{ position: [3, 4, 4], fov: 45 }}
         shadows
         dpr={[1, 2]} // Crisp rendering
         gl={{ antialias: true, alpha: true }}

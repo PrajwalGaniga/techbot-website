@@ -10,9 +10,9 @@ import mentor2 from '../assets/mentor2.jpeg';
 import mentor3 from '../assets/mentor3.jpeg';
 
 // Video Clips (using exact path provided)
-import clip1 from '../assets/vedio-clips/clip3.mp4';
+import clip1 from '../assets/vedio-clips/clip1.mp4';
 import clip2 from '../assets/vedio-clips/clip2.mp4';
-import clip3 from '../assets/vedio-clips/clip1.mp4';
+import clip3 from '../assets/vedio-clips/clip3.mp4';
 
 // --- HELPER COMPONENT: LetterStagger Animation ---
 const LetterStagger = ({ text }) => {
@@ -101,21 +101,21 @@ const Home = () => {
       name: "Dr. Soorya Krishna K",
       role: "HOD, Dept. of ECE, SIT",
       image: mentor3, 
-      linkedin: "https://linkedin.com" 
+      linkedin: "https://www.linkedin.com/in/ksooryakrishna1/" 
     },
     {
       id: 2,
       name: "Shailesh S Shetty",
       role: "HOD, Dept. of CS & Design, SIT",
       image: mentor2, 
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/shailesh-s-shetty-2b076b42/"
     },
     {
       id: 3,
       name: "Aditya R Poonja",
       role: "SWE at K-Tech Mangalore",
       image: mentor1, 
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/aditya-ramanath-poonja/"
     }
   ];
 

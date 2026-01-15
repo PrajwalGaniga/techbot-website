@@ -72,7 +72,7 @@ const LetterStagger = ({ text }) => {
 const Team = () => {
   const mentors = [
     { name: "Dr. Soorya Krishna K", role: "Faculty Mentor", title: "HOD, Dept. of ECE, SIT", info: "Ph.D. with 18 years of teaching experience; specialist in VLSI and IoT.", image: mentor3 },
-    { name: "Shailesh S Shetty", role: "Faculty Mentor", title: "HOD, Dept. of CS & Design, SIT", info: "M.Tech in Computer Engineering; expert in ML, AI, and Blockchain.", image: mentor2 },
+    { name: "Shailesh S Shetty", role: "Faculty Mentor", title: "HOD, Dept. of CS & Business System, SIT", info: "M.Tech in Computer Engineering; expert in ML, AI, and Blockchain.", image: mentor2 },
     { name: "Aditya R Poonja", role: "Industry Mentor", title: "SWE, K-Tech Mangalore", info: "5+ years of Deep-Tech experience; focused on Startup Growth and AI/ML.", image: mentor1 }
   ];
 

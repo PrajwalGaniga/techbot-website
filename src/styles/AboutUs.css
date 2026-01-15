@@ -446,8 +446,9 @@
   color: var(--accent-primary, #0ea5e9);
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 2rem;
+  margin-right: 200;
   display: inline-block;
   padding: 8px 18px;
   background: rgba(14, 165, 233, 0.1);
@@ -546,10 +547,11 @@
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-family: var(--font-heading);
   color: #fff;
   margin-top: 15px;
+  justify-content: center;
 }
 
 .mentor-deck {

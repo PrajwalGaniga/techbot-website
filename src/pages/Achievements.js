@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'; // 1. Added useCallback import
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Achievements.css';
 
@@ -6,8 +6,8 @@ import '../styles/Achievements.css';
 import srinathonImg from '../assets/srinathon.png'; 
 import iitImg from '../assets/iit_madras.png';
 import infosysImg from '../assets/infosys.png';
-import sihImg from '../assets/achievemnets/sihImg.jpeg'
-import aigniteImg from '../assets/achievemnets/aignite.jpeg'
+import sihImg from '../assets/achievemnets/sihImg.jpeg';
+import aigniteImg from '../assets/achievemnets/aignite.jpeg';
 
 // --- HELPER COMPONENT: LetterStagger ---
 const LetterStagger = ({ text }) => {
@@ -65,29 +65,24 @@ const Achievements = () => {
       desc: "Proudly represented the LUNA semi-humanoid robot at the Infosys DK Campus, demonstrating advanced robotics integration to industry leaders.",
       img: infosysImg
     },
-      // 🆕 SIH 2025 Achievement
-          {
-            title: "Shortlisted for SIH 2025 Grand Finale",
-            tag: "Smart India Hackathon",
-            event: "Ministry of Fisheries, Animal Husbandry & Dairying",
-            desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale for the project 'Digital Farm Management Portal for Implementing Biosecurity Measures in Pig/Poultry'. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
-            img: sihImg
-          },
-        
-          // 🆕 AIGNITE 2.0
-          {
-            title: "Participation – AIGNITE 2.0",
-            tag: "National Level Project Expo",
-            event: "AIGNITE 2.0",
-            desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation and peer learning.",
-            img: aigniteImg
-          },
+    {
+      title: "Shortlisted for SIH 2025 Grand Finale",
+      tag: "Smart India Hackathon",
+      event: "Ministry of Fisheries, Animal Husbandry & Dairying",
+      desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
+      img: sihImg
+    },
+    {
+      title: "Participation – AIGNITE 2.0",
+      tag: "National Level Project Expo",
+      event: "AIGNITE 2.0",
+      desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation.",
+      img: aigniteImg
+    },
   ];
 
-  // We only care about the index, the direction helps animation
   const idx = Math.abs(page % data.length);
 
-  // 2. Wrapped paginate in useCallback to satisfy ESLint
   const paginate = useCallback((newDirection) => {
     setPage([page + newDirection, newDirection]);
   }, [page]); 
@@ -96,11 +91,10 @@ const Achievements = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 6000); // Change slide every 6 seconds
+    }, 6000); 
     return () => clearInterval(timer);
-  }, [paginate]); // 3. Added paginate to dependency array
+  }, [paginate]);
 
-  // Animation variants
   const variants = {
     enter: (direction) => ({
       x: direction > 0 ? 300 : -300, 
@@ -161,9 +155,8 @@ const Achievements = () => {
 
       <section className="carousel-section">
         <div className="carousel-container">
-          {/* Left Arrow */}
-          <button className="nav-arrow left" onClick={() => paginate(-1)}>‹</button>
-
+          
+          {/* Viewport for Card */}
           <div className="slide-viewport">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.div
@@ -174,6 +167,10 @@ const Achievements = () => {
                 animate="center"
                 exit="exit"
                 className="achievement-card-clear"
+                
+                // CLICK INTERACTION
+                onClick={() => paginate(1)}
+                whileTap={{ scale: 0.98 }}
               >
                 {/* CLEAR IMAGE SECTION */}
                 <div className="clear-img-box">
@@ -186,13 +183,14 @@ const Achievements = () => {
                   <h2>{data[idx].title}</h2>
                   <h4 className="event-sub">{data[idx].event}</h4>
                   <p>{data[idx].desc}</p>
+                  
+                  {/* Subtle Hint */}
+                  <span className="tap-hint">Tap for next</span>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Right Arrow */}
-          <button className="nav-arrow right" onClick={() => paginate(1)}>›</button>
         </div>
       </section>
     </div>
