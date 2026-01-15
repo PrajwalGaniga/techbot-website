@@ -5,9 +5,9 @@ import '../styles/Home.css';
 import ChipScene from '../components/ChipScene';
 
 // Images
-import mentor1 from '../assets/mentor1.jpeg';
-import mentor2 from '../assets/mentor2.jpeg';
-import mentor3 from '../assets/mentor3.jpeg';
+import mentor1 from '../assets/mentors/mentor1.jpeg';
+import mentor2 from '../assets/mentors/mentor2.jpeg';
+import mentor3 from '../assets/mentors/mentor3.jpeg';
 
 // Video Clips
 import clip1 from '../assets/vedio-clips/clip1.mp4';

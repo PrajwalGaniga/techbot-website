@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/AboutUs.css';
 
 // Assets
-import mentor1 from '../assets/mentor1.jpeg';
-import mentor2 from '../assets/mentor2.jpeg';
-import mentor3 from '../assets/mentor3.jpeg';
-import srinathonImg from '../assets/srinathon.png'; 
-import iitImg from '../assets/iit_madras.png';
-import infosysImg from '../assets/infosys.png';
+import mentor1 from '../assets/mentors/mentor1.jpeg';
+import mentor2 from '../assets/mentors/mentor2.jpeg';
+import mentor3 from '../assets/mentors/mentor3.jpeg';
+import srinathonImg from '../assets/achievemnets/srinathon.png'; 
+import iitImg from '../assets/achievemnets/iit_madras.png';
+import infosysImg from '../assets/achievemnets/infosys.png';
 import sihImg from '../assets/achievemnets/sihImg.jpeg';
 import aigniteImg from '../assets/achievemnets/aignite.jpeg';
 

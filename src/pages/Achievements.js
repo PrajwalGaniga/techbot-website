@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Achievements.css';
 
 // Ensure these paths are correct based on your folder structure
-import srinathonImg from '../assets/srinathon.png'; 
-import iitImg from '../assets/iit_madras.png';
-import infosysImg from '../assets/infosys.png';
+import srinathonImg from '../assets/achievemnets/srinathon.png'; 
+import iitImg from '../assets/achievemnets/iit_madras.png';
+import infosysImg from '../assets/achievemnets/infosys.png';
 import sihImg from '../assets/achievemnets/sihImg.jpeg';
 import aigniteImg from '../assets/achievemnets/aignite.jpeg';
 

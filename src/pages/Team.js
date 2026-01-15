@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import '../styles/Team.css';
 
 // Mentor Imports
-import mentor1 from '../assets/mentor1.jpeg';
-import mentor2 from '../assets/mentor2.jpeg';
-import mentor3 from '../assets/mentor3.jpeg';
+import mentor1 from '../assets/mentors/mentor1.jpeg';
+import mentor2 from '../assets/mentors/mentor2.jpeg';
+import mentor3 from '../assets/mentors/mentor3.jpeg';
 
 // Student Imports
 import safwanImg from '../assets/students/safwan.png';

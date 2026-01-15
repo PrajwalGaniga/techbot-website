@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import '../styles/Projects.css';
 
 // Import images
-import lunaImg from '../assets/luna.png';
-import phylaxImg from '../assets/phylax.png';
+import lunaImg from '../assets/projects/luna.png';
+import phylaxImg from '../assets/projects/phylax.png';
 import sniproboImg from '../assets/projects/snipRobo.jpeg';
-import soccerbotImg from '../assets/soccerbot.png';
-import linefollowerImg from '../assets/linefollower.jpeg';
-import multihazardImg from '../assets/multihazard.png';
-import robovitaImg from '../assets/robovita1.png';
+import soccerbotImg from '../assets/projects/soccerbot.png';
+import linefollowerImg from '../assets/projects/linefollower.jpeg';
+import multihazardImg from '../assets/projects/multihazard.png';
+import robovitaImg from '../assets/projects/robovita1.png';
 import lunaV2 from '../assets/projects/lunav2.png';
 
 // --- HELPER COMPONENT: LetterStagger ---
