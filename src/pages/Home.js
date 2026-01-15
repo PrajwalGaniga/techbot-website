@@ -106,7 +106,7 @@ const Home = () => {
     {
       id: 2,
       name: "Shailesh S Shetty",
-      role: "HOD, Dept. of CS & Design, SIT",
+      role: "HOD, Dept. of CS & Business System, SIT",
       image: mentor2, 
       linkedin: "https://www.linkedin.com/in/shailesh-s-shetty-2b076b42/"
     },
