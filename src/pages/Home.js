@@ -313,8 +313,10 @@ const Home = () => {
           ))}
         </div>
         
-        <div className="section-cta" style={{textAlign: 'center'}}>
-          <button className="btn-secondary">Meet Full Team</button>
+       <div className="section-cta" style={{textAlign: 'center'}}>
+          <Link to="/team">
+            <button className="btn-secondary">Meet Full Team</button>
+          </Link>
         </div>
       </section>
 
