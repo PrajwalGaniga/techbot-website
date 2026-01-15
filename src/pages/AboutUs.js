@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/AboutUs.css';
+
+// Assets
 import mentor1 from '../assets/mentor1.jpeg';
 import mentor2 from '../assets/mentor2.jpeg';
 import mentor3 from '../assets/mentor3.jpeg';
 import srinathonImg from '../assets/srinathon.png'; 
 import iitImg from '../assets/iit_madras.png';
 import infosysImg from '../assets/infosys.png';
-import sihImg from '../assets/achievemnets/sihImg.jpeg'
-import aigniteImg from '../assets/achievemnets/aignite.jpeg'
+import sihImg from '../assets/achievemnets/sihImg.jpeg';
+import aigniteImg from '../assets/achievemnets/aignite.jpeg';
 
 // --- HELPER COMPONENT: LetterStagger Animation ---
 // Provides the premium letter-by-letter reveal effect
@@ -19,29 +21,13 @@ const LetterStagger = ({ text }) => {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.05, delayChildren: 0.04 * i },
+      transition: { staggerChildren: 0.03, delayChildren: 0.04 * i },
     }),
   };
 
   const child = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 200,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 200,
-      },
-    },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 200 } },
+    hidden: { opacity: 0, y: 15 },
   };
 
   return (
@@ -64,202 +50,102 @@ const LetterStagger = ({ text }) => {
 const AboutUs = () => {
   const [activeFaq, setActiveFaq] = useState(null);
   const [achieveIdx, setAchieveIdx] = useState(0);
+  const [showDetails, setShowDetails] = useState(false);
+
+  // --- DATA ---
+  const techStack = [
+    { title: "Hardware Platforms", items: ["ESP32", "STM32", "RISC-V", "Raspberry Pi"], icon: "⚡" },
+    { title: "Software & Web", items: ["React", "Dashboards", "REST APIs", "Cloud IoT"], icon: "🌐" },
+    { title: "AI & Intelligence", items: ["CNNs", "Computer Vision", "Edge AI", "LLMs"], icon: "🧠" },
+    { title: "Mechanical", items: ["3D Printing", "CAD Design", "Fabrication", "Motion Control"], icon: "⚙️" },
+  ];
+
+  const processSteps = [
+    { id: 1, title: "Problem Definition", desc: "Identifying real-world constraints and defining system requirements." },
+    { id: 2, title: "System Design", desc: "Architecting the hardware, mechanical, and software layers simultaneously." },
+    { id: 3, title: "Build & Firmware", desc: "Fabricating the chassis, assembling PCBs, and writing embedded logic." },
+    { id: 4, title: "Integration & Web", desc: "Connecting the physical device to web dashboards and cloud APIs." },
+    { id: 5, title: "Deployment", desc: "Testing under real conditions, iterating, and finalizing the solution." },
+  ];
 
   const achievements = [
-    {
-      title: "First Prize – SRINATHON 2.0",
-      event: "International Hackathon",
-      desc: "Secured First Place in a 24-hour international-level hackathon, showcasing innovation and technical excellence.",
-      img: srinathonImg
-    },
-    {
-      title: "Top 40 Teams – Ideas to Impact 2.0",
-      event: "IIT Madras",
-      desc: "Selected among the Top 40 teams nationwide for an AI-powered smart waste management solution.",
-      img: iitImg
-    },
-    {
-      title: "Project Representation",
-      event: "Infosys DK Campus",
-      desc: "Represented the LUNA robot at Infosys DK Campus, demonstrating advanced robotics to industry professionals.",
-      img: infosysImg
-    },
-    
-      // 🆕 SIH 2025 Achievement
-      {
-        title: "Shortlisted for SIH 2025 Grand Finale",
-        tag: "Smart India Hackathon",
-        event: "Ministry of Fisheries, Animal Husbandry & Dairying",
-        desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale for the project 'Digital Farm Management Portal for Implementing Biosecurity Measures in Pig/Poultry'. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
-        img: sihImg
-      },
-    
-      // 🆕 AIGNITE 2.0
-      {
-        title: "Participation – AIGNITE 2.0",
-        tag: "National Level Project Expo",
-        event: "AIGNITE 2.0",
-        desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation and peer learning.",
-        img: aigniteImg
-      },
+    { title: "First Prize – SRINATHON 2.0", tag: "International Hackathon", event: "Organized by SSOSC and Nexus", desc: "Secured First Place in a 24-hour international-level hackathon.", img: srinathonImg },
+    { title: "Top 40 Teams – Ideas to Impact 2.0", tag: "National Recognition", event: "IIT Madras", desc: "Selected among the Top 40 teams nationwide for an AI-powered smart waste management solution.", img: iitImg },
+    { title: "Project Representation", tag: "Industry Showcase", event: "Infosys DK Campus", desc: "Proudly represented the LUNA semi-humanoid robot at Infosys.", img: infosysImg },
+    { title: "Shortlisted for SIH 2025", tag: "Smart India Hackathon", event: "Ministry of Fisheries", desc: "Shortlisted for the SIH 2025 Grand Finale for 'Digital Farm Management Portal'.", img: sihImg },
+    { title: "Participation – AIGNITE 2.0", tag: "National Project Expo", event: "AIGNITE 2.0", desc: "Presented innovative technical solutions and gained competitive exposure.", img: aigniteImg },
   ];
-  const [showDetails, setShowDetails] = useState(false);
-  // Carousel Logic
+
+  const faqs = [
+    { q: "How do I join TechBots?", a: "We hold recruitment drives at the start of every academic year. It's open to all departments and years. Watch out for our announcements!" },
+    { q: "Do I need prior experience?", a: "Not at all. We value passion and consistency over current skills. We teach everything from scratch through our mentorship program." },
+    { q: "What domains can I work in?", a: "You can work in Electronics, Web Development, AI/ML, Mechanical Design, or a mix of all. We encourage cross-domain learning." },
+    { q: "What is the time commitment?", a: "We are an active working space. While hours are flexible, consistent participation in projects and weekly meets is expected for growth." },
+    { q: "Do we participate in hackathons?", a: "Yes! We actively participate in and win National-level hackathons like SIH, Srinathon, and various project expos." }
+  ];
+
+  // --- CAROUSEL LOGIC ---
   useEffect(() => {
-  // Initial delay for the very first slide's text
-  const textTimer = setTimeout(() => setShowDetails(true), 3000);
-
-  const slideTimer = setInterval(() => {
-    setShowDetails(false); // 1. Hide text first
-    setAchieveIdx((prev) => (prev + 1) % achievements.length); // 2. Change Image
-    
-    // 3. Show text again after 3 seconds of showing the new image
-    setTimeout(() => setShowDetails(true), 3000);
-  }, 8000); // Cycle: 3s (Image only) + 5s (Image + Text)
-
-  return () => {
-    clearInterval(slideTimer);
-    clearTimeout(textTimer);
-  };
-}, [achievements.length]);
-
-  const stats = [
-    { label: "Students", value: "100+" },
-    { label: "Projects", value: "50+" },
-    { label: "Workshops", value: "15+" },
-    { label: "Modules", value: "50+" },
-    { label: "Work Hours", value: "100+" }
-  ];
+    const textTimer = setTimeout(() => setShowDetails(true), 3000);
+    const slideTimer = setInterval(() => {
+      setShowDetails(false);
+      setAchieveIdx((prev) => (prev + 1) % achievements.length);
+      setTimeout(() => setShowDetails(true), 3000);
+    }, 8000);
+    return () => { clearInterval(slideTimer); clearTimeout(textTimer); };
+  }, [achievements.length]);
 
   const mentorDetails = [
-    {
-      id: 1,
-      name: "Dr. Soorya Krishna K",
-      role: "ECE VLSI Enthusiast | Ph.D. NITK",
-      bio: "Ph.D. in VLSI high speed interconnects with 18 years of teaching experience. Specialist in Electronic Devices, Analog Circuits, and IoT.",
-      expertise: ["VLSI Design", "IoT", "Python"],
-      image: mentor3
-    },
-    {
-      id: 2,
-      name: "Shailesh S Shetty",
-      role: "Assistant Professor | M.Tech NMAMIT",
-      bio: "Experienced Assistant Professor with an M.Tech in Computer Engineering. Skilled in AI/ML, Blockchain, and Cyber Security.",
-      expertise: ["AI / ML", "Blockchain", "CyberSec"],
-      image: mentor2
-    },
-    {
-      id: 3,
-      name: "Aditya R Poonja",
-      role: "Business Development Executive",
-      bio: "SWE Specialist with 5+ years of Deep-Tech experience. Expertise in Robotics, AI/ML, and Startup Growth.",
-      expertise: ["Deep-Tech", "Robotics", "Software"],
-      image: mentor1
-    }
+    { id: 1, name: "Dr. Soorya Krishna K", role: "ECE VLSI Enthusiast | Ph.D. NITK", bio: "Ph.D. in VLSI high speed interconnects. Specialist in Electronic Devices and IoT.", expertise: ["VLSI", "IoT"], image: mentor3 },
+    { id: 2, name: "Shailesh S Shetty", role: "Assistant Professor | M.Tech", bio: "Skilled in AI/ML, Blockchain, and Cyber Security. HOD of CS & Business Systems.", expertise: ["AI/ML", "Blockchain"], image: mentor2 },
+    { id: 3, name: "Aditya R Poonja", role: "Industry Mentor", bio: "SWE Specialist with Deep-Tech experience. Expertise in Robotics, AI, and Startup Growth.", expertise: ["Deep-Tech", "Robotics"], image: mentor1 }
   ];
 
   return (
     <div className="about-page">
       
-      {/* SCENE 1: SYSTEM INITIALIZATION (HERO) */}
+      {/* 1. HERO: VISION & MISSION */}
       <section className="about-hero">
-        <motion.div 
-          className="manifesto-container"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="center-card">
-            <motion.h3 
-              className="section-label"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              Scene 01: The Mission
-            </motion.h3>
+        <div className="manifesto-container">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <span className="section-label">Our Purpose</span>
             
+            {/* FIX 1: Using LetterStagger Here */}
             <h1 className="story-heading">
-              <LetterStagger text="Engineering Tomorrow's Intelligence" />
+              <LetterStagger text="To Build a Strong Multidisciplinary Engineering Community" />
             </h1>
             
-            <motion.p 
-              className="hero-text"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              Welcome to <strong>TechBots</strong>, where innovation meets inspiration. 
-              We are a vibrant community of passionate creators and tech enthusiasts united by 
-              a shared vision to push the boundaries of robotics and automation.
-            </motion.p>
-          </div>
-        </motion.div>
+            <div className="mission-box">
+              <p className="mission-text">
+                <strong>MISSION:</strong> To provide a hands-on learning environment where members work across electronics, mechanical design, software development, AI, IoT, and robotics to build integrated systems. Through projects, mentorship, and continuous practice, we bridge the gap between academic learning and real engineering experience.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
-      {/* SCENE 2: SYSTEM DIAGNOSTICS (SKILLS) */}
+      {/* 2. TECH STACK (Formerly Skills) */}
       <section className="skills-diagnostics">
-        <div style={{textAlign: 'center', maxWidth: '800px', margin: '0 auto'}}>
-          <span className="section-label">System Capabilities</span>
-          <h2 className="section-title">Core Competencies</h2>
+        <div className="section-header">
+          <span className="section-label">Capabilities</span>
+          <h2 className="section-title">Our Tech Stack</h2>
         </div>
         
-        <div className="skills-grid">
-          {[
-            { name: "Electronics & PCB", val: 100 },
-            { name: "TensorFlow / AI", val: 96 },
-            { name: "Python / Backend", val: 95 },
-            { name: "Embedded C / Arduino", val: 85 }
-          ].map((skill, i) => (
-            <div key={i} className="skill-bar-container">
-              <div className="skill-info">
-                <span>{skill.name}</span>
-                <span style={{color: 'var(--accent-primary)'}}>{skill.val}%</span>
-              </div>
-              <div className="progress-bg">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.val}%` }}
-                  transition={{ duration: 1.5, delay: i * 0.15, ease: "easeOut" }}
-                  className="progress-fill"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SCENE 3: THE BRAINS (ACES STACKED CARDS) */}
-      <section className="leadership-journey">
-        <div className="section-header">
-          <span className="section-label">Guidance</span>
-          <h2 className="section-title">The Visionaries</h2>
-        </div>
-        <div className="mentor-deck">
-          {mentorDetails.map((mentor, index) => (
+        <div className="tech-stack-grid">
+          {techStack.map((tech, i) => (
             <motion.div 
-              key={mentor.id} 
-              className="ace-card"
-              whileHover={{ y: -15 }}
-              initial={{ opacity: 0, y: 30 }}
+              key={i} 
+              className="tech-card"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
             >
-              <div className="card-header">
-                <img 
-                  src={mentor.image} 
-                  alt={mentor.name} 
-                  className="mentor-portrait" 
-                />
-                <div className="mentor-meta">
-                  <h4>{mentor.name}</h4>
-                  <span className="role-tag">{mentor.role}</span>
-                </div>
-              </div>
-              <p className="mentor-bio-text">{mentor.bio}</p>
-              <div className="expertise-grid">
-                {mentor.expertise.map((exp, i) => (
-                  <span key={i} className="skill-pill">{exp}</span>
+              <span className="tech-icon">{tech.icon}</span>
+              <h3>{tech.title}</h3>
+              <div className="tech-tags">
+                {tech.items.map((item, j) => (
+                  <span key={j} className="t-tag">{item}</span>
                 ))}
               </div>
             </motion.div>
@@ -267,94 +153,116 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* SCENE 4: IMPACT LOGS (STATS) */}
-      <section className="impact-logs">
-        <div className="stats-grid">
-          {stats.map((stat, index) => (
+      {/* 3. ENGINEERING APPROACH (New Section) */}
+      <section className="approach-section">
+        <div className="section-header">
+          <span className="section-label">Methodology</span>
+          <h2 className="section-title">How We Engineer</h2>
+        </div>
+
+        <div className="timeline-container">
+          {processSteps.map((step, i) => (
             <motion.div 
-              key={index} 
-              className="impact-card"
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ delay: index * 0.1 }}
+              key={step.id} 
+              className="process-step"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
             >
-              <h2 className="impact-value">{stat.value}</h2>
-              <p className="impact-label">{stat.label}</p>
+              <div className="step-number">{step.id}</div>
+              <div className="step-content">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="achievements-cinema">
-  <div className="section-header">
-    <span className="section-label">Our Diary</span>
-    <h2 className="section-title">The Golden Record</h2>
-  </div>
-
-  <div className="cinema-slider-container">
-    <button className="nav-arrow left" onClick={() => setAchieveIdx(achieveIdx === 0 ? achievements.length - 1 : achieveIdx - 1)}>‹</button>
-    
-    <div className="cinema-track">
-      {achievements.map((item, index) => (
-        <div key={index} className={`cinema-slide ${index === achieveIdx ? 'active' : ''}`}>
-          {/* Background Image */}
-          <div 
-            className="slide-bg-visible" 
-            style={{ backgroundImage: `url(${item.img})` }}
-          ></div>
-          
-          <div className="overlay-dimmer"></div>
-
-          {/* Conditional Text Rendering based on 'showDetails' state */}
-          {index === achieveIdx && showDetails && (
-            <motion.div 
-              className="slide-content-glass"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="victory-tag">Achievement</span>
-              {/* Splitting title logic from your previous code */}
-              <h4>{item.title}</h4> 
-              <p className="event-meta">{item.event}</p>
-              <p className="event-desc">{item.desc}</p>
-            </motion.div>
-          )}
+      {/* 4. MENTORS & CULTURE */}
+      <section className="leadership-journey">
+        <div className="section-header">
+          <span className="section-label">Culture</span>
+          <h2 className="section-title">Mentorship & Guidance</h2>
+          <p style={{color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto'}}>
+            A structured senior-to-junior mentorship system fostering cross-domain teamwork and knowledge sharing.
+          </p>
         </div>
-      ))}
-    </div>
+        <div className="mentor-deck">
+          {mentorDetails.map((mentor, index) => (
+            <div key={mentor.id} className="ace-card">
+              <div className="card-header">
+                <img src={mentor.image} alt={mentor.name} className="mentor-portrait" />
+                <div className="mentor-meta">
+                  <h4>{mentor.name}</h4>
+                  <span className="role-tag">{mentor.role}</span>
+                </div>
+              </div>
+              <p className="mentor-bio-text">{mentor.bio}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    <button className="nav-arrow right" onClick={() => setAchieveIdx((achieveIdx + 1) % achievements.length)}>›</button>
-  </div>
-</section>
+      {/* 5. ACHIEVEMENTS CINEMA (Restored Layout) */}
+      <section className="achievements-cinema">
+        <div className="section-header">
+          <span className="section-label">Our Diary</span>
+          <h2 className="section-title">The Golden Record</h2>
+        </div>
 
-      {/* FAQ SECTION */}
+        <div className="cinema-slider-container">
+          <div className="cinema-track">
+            {achievements.map((item, index) => (
+              <div key={index} className={`cinema-slide ${index === achieveIdx ? 'active' : ''}`}>
+                <div className="slide-bg-visible" style={{ backgroundImage: `url(${item.img})` }}></div>
+                <div className="overlay-dimmer"></div>
+                {index === achieveIdx && showDetails && (
+                  <motion.div 
+                    className="slide-content-glass"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <span className="victory-tag">{item.tag}</span>
+                    <h4>{item.title}</h4> 
+                    <p className="event-meta">{item.event}</p>
+                    <p className="event-desc">{item.desc}</p>
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FAQ SECTION (General Questions) */}
       <section className="faq-terminal">
         <div className="section-header">
            <span className="section-label">Database</span>
-           <h2 className="section-title">Frequently Asked Questions</h2>
+           <h2 className="section-title">Common Questions</h2>
         </div>
         
         <div className="faq-container">
-          {[
-            { q: "What is the main focus?", a: "We design, build, and program robots for competitions and projects like LUNA V2 and Sumo Bots." },
-            { q: "Do I need prior experience?", a: "No experience is required! We welcome all skill levels and offer mentorship." },
-            { q: "What types of projects?", a: "We work on humanoid robots, autonomous drones, and custom IoT projects like LiFi modules." }
-          ].map((item, i) => (
+          {faqs.map((item, i) => (
             <div key={i} className="faq-item" onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
               <div className="faq-question">
                 <span>{item.q}</span>
                 <span className="toggle">{activeFaq === i ? '−' : '+'}</span>
               </div>
-              {activeFaq === i && (
-                <motion.div 
-                  initial={{ height: 0, opacity: 0 }} 
-                  animate={{ height: 'auto', opacity: 1 }} 
-                  className="faq-answer"
-                >
-                  {item.a}
-                </motion.div>
-              )}
+              <AnimatePresence>
+                {activeFaq === i && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }} 
+                    animate={{ height: 'auto', opacity: 1 }} 
+                    exit={{ height: 0, opacity: 0 }}
+                    className="faq-answer"
+                  >
+                    {item.a}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

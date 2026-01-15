@@ -788,7 +788,7 @@
 
 .card-img-standard {
   width: 100%;
-  height: 240px;
+  height: 230px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -1171,6 +1171,258 @@
 .tech-pill {
   font-size: 0.7rem;
   padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #cbd5e1;
+}
+
+/* Display Logic */
+@media (max-width: 768px) {
+  .desktop-grid-container { display: none; }
+}
+
+@media (min-width: 769px) {
+  .mobile-scroll-container { display: none; }
+}
+
+/* =========================================
+   PROJECTS PAGE - HYBRID LAYOUT (FIXED)
+   ========================================= */
+
+.projects-page {
+  padding-top: 80px;
+  background-color: var(--bg-main, #030712);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.projects-hero {
+  padding: 80px 5% 40px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.section-label {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  color: var(--accent-primary, #0ea5e9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 50px;
+  background: rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.projects-hero h1 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-primary, #0ea5e9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.4));
+}
+
+.projects-hero p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   MODE 1: DESKTOP GRID (Fixed for Desktop Mode on Phone)
+   ========================================= */
+.desktop-grid-container {
+  padding: 40px 5% 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+@media (min-width: 769px) and (max-width: 1150px) {
+  .desktop-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px 20px;
+  }
+}
+
+.project-card-standard {
+  background: var(--bg-card, rgba(30, 41, 59, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card-standard:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.card-img-standard {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-img-standard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card-standard:hover .card-img-standard img {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   MODE 2: MOBILE SCROLL SNAP CAROUSEL
+   ========================================= */
+.mobile-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 5% 60px;
+  gap: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.mobile-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-card-wrapper {
+  flex: 0 0 85vw; /* Cards are 85% width of phone screen */
+  scroll-snap-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+  transform-origin: center center;
+}
+
+.project-card-mobile {
+  background: #0f172a; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  
+  /* --- CHANGED: Increased height to fit more content --- */
+  height: 560px; 
+  
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+/* Focus Effect: Inactive cards fade and shrink */
+.mobile-card-wrapper {
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
+.mobile-card-wrapper.active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+}
+
+.mobile-card-wrapper.active .project-card-mobile {
+  border-color: var(--accent-primary);
+  box-shadow: 0 15px 50px rgba(14, 165, 233, 0.25);
+  background: #1e293b;
+}
+
+.card-img-mobile {
+  width: 100%;
+  
+  /* --- CHANGED: Reduced image height to give text more room --- */
+  height: 45%; 
+  
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-img-mobile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- SHARED TEXT STYLES --- */
+.card-info {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligns content to top of text area */
+}
+
+.p-tag {
+  color: var(--accent-secondary, #6366f1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.card-info h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.card-info p {
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  /* Allow slightly more text visibility */
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tech-row {
+  margin-top: auto; /* Pushes tags to the very bottom */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-pill {
+  font-size: 0.7rem;
+  padding: 6px 12px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;

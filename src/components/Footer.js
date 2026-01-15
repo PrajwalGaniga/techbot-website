@@ -15,8 +15,7 @@ const Footer = () => {
             <h2>TECHBOTS<span>.</span></h2>
           </div>
           <p>
-            The official robotics and innovation club of SIT Mangalore. 
-            Engineering the future, one bot at a time.
+            A multidisciplinary engineering community where hardware and software come together to build complete, real-world systems.
           </p>
         </div>
 
