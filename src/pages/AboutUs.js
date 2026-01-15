@@ -54,11 +54,56 @@ const AboutUs = () => {
 
   // --- DATA ---
   const techStack = [
-    { title: "Hardware Platforms", items: ["ESP32", "STM32", "RISC-V", "Raspberry Pi"], icon: "⚡" },
-    { title: "Software & Web", items: ["React", "Dashboards", "REST APIs", "Cloud IoT"], icon: "🌐" },
-    { title: "AI & Intelligence", items: ["CNNs", "Computer Vision", "Edge AI", "LLMs"], icon: "🧠" },
-    { title: "Mechanical", items: ["3D Printing", "CAD Design", "Fabrication", "Motion Control"], icon: "⚙️" },
-  ];
+  { 
+    title: "Microcontrollers", 
+    items: ["ESP32", "STM32", "RISC-V", "Raspberry Pi"], 
+    icon: "⚡" 
+  },
+  { 
+    title: "Software & Web", 
+    items: ["React", "Dashboards", "REST APIs", "Cloud IoT"], 
+    icon: "🌐" 
+  },
+  { 
+    title: "AI & Intelligence", 
+    items: ["CNNs", "Computer Vision", "Edge AI", "LLMs"], 
+    icon: "🧠" 
+  },
+  { 
+    title: "Mechanical", 
+    items: ["3D Printing", "CAD Design", "Fabrication", "Motion Control"], 
+    icon: "⚙️" 
+  },
+
+  // ✅ Added from Safwan's data (Filtered)
+  { 
+    title: "IDEs & Development Tools", 
+    items: [
+      "Arduino IDE",
+      "VS Code",
+      "PlatformIO",
+      "ESP-IDF",
+      "STM32CubeIDE",
+      "STM32CubeProgrammer"
+    ], 
+    icon: "🛠️" 
+  },
+  { 
+    title: "Simulation & PCB Design", 
+    items: [
+      "ROS",
+      "Gazebo",
+      "Wokwi",
+      "Tinkercad",
+      "Cirkit Designer",
+      "LTspice",
+      "EasyEDA",
+      "KiCad"
+    ], 
+    icon: "📐" 
+  },
+];
+
 
   const processSteps = [
     { id: 1, title: "Problem Definition", desc: "Identifying real-world constraints and defining system requirements." },

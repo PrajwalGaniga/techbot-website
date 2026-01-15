@@ -159,7 +159,7 @@ const Home = () => {
     {
       id: 3,
       name: "Aditya R Poonja",
-      role: "SWE at K-Tech Mangalore",
+      role: "BDE, AIC Nitte Incubation Centre",
       image: mentor1, 
       linkedin: "https://www.linkedin.com/in/aditya-ramanath-poonja/"
     }

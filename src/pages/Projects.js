@@ -5,11 +5,12 @@ import '../styles/Projects.css';
 // Import images
 import lunaImg from '../assets/luna.png';
 import phylaxImg from '../assets/phylax.png';
-import sniproboImg from '../assets/sniprobo.png';
+import sniproboImg from '../assets/projects/snipRobo.jpeg';
 import soccerbotImg from '../assets/soccerbot.png';
 import linefollowerImg from '../assets/linefollower.jpeg';
 import multihazardImg from '../assets/multihazard.png';
 import robovitaImg from '../assets/robovita1.png';
+import lunaV2 from '../assets/projects/lunav2.png';
 
 // --- HELPER COMPONENT: LetterStagger ---
 const LetterStagger = ({ text }) => {
@@ -38,7 +39,7 @@ const LetterStagger = ({ text }) => {
 const projectData = [
   { 
     id: 1, 
-    title: "LUNA V2", 
+    title: "LUNA V1", 
     tag: "Integrated Robotics", 
     desc: "A complete semi-humanoid system. Combines a custom 3D-printed mechanical chassis, Raspberry Pi computing core, and OpenAI-based LLM integration for natural voice interaction.", 
     tech: ["Mechanical Design", "Python", "LLMs", "Raspberry Pi"], 
@@ -78,7 +79,7 @@ const projectData = [
   },
   { 
     id: 6, 
-    title: "Terrain Sentinels", 
+    title: "Soccer & Terrain bot", 
     tag: "Mobile Robotics", 
     desc: " rugged mobile units focused on drivetrain mechanics. Features custom traction systems and low-latency wireless communication protocols for agile navigation.", 
     tech: ["Fabrication", "RF Comm", "Motor Drivers"], 
@@ -91,6 +92,14 @@ const projectData = [
     desc: "Precision navigation robot utilizing PID control algorithms and sensor fusion to autonomously traverse complex paths with high accuracy.", 
     tech: ["Control Theory", "Sensor Fusion", "Embedded C"], 
     img: linefollowerImg 
+  },
+  { 
+    id: 8, 
+    title: "LUNA v2", 
+    tag: "Integrated Robotics", 
+    desc: "A complete semi-humanoid system. Combines a custom 3D-printed mechanical chassis, Raspberry Pi computing core, and OpenAI-based LLM integration for natural voice interaction.", 
+    tech: ["Mechanical Design", "Python", "LLMs", "Raspberry Pi"], 
+    img: lunaV2 
   }
 ];
 
