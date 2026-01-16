@@ -6,6 +6,7 @@ import '../styles/Workshops.css';
 import outreachImg from '../assets/workshops/outreach.png';
 import esp32Img from '../assets/workshops/esp32_workshop.png';
 import orientationImg from '../assets/workshops/orientation.png';
+import openDayImg from '../assets/workshops/openDayImg.jpeg';
 
 // --- Helper Component for Alphabet Animation ---
 // This handles the visual effect without altering the logic structure
@@ -62,6 +63,14 @@ const Workshops = () => {
   const workshopData = [
     {
       id: 1,
+      title: "TechBots Open Day",
+      location: "Srinivas Institute of Technology",
+      desc: "Showcased hands-on innovation through live project demonstrations. Visitors interacted with robotics, embedded systems, IoT, and software solutions. The event highlighted practical learning, collaboration, and real technical capability.",
+      impact: "Innovation Showcase",
+      image: openDayImg
+    },
+    {
+      id: 2,
       title: "AI & Robotics Outreach",
       location: "GHS School, Nada, Belthangady",
       desc: "Introduced AI tools and robotics to students of classes 8–10. Activities featured line-following robots and Bluetooth-based LED control.",
@@ -69,7 +78,7 @@ const Workshops = () => {
       image: outreachImg
     },
     {
-      id: 2,
+      id: 3,
       title: "ESP32 & ESP-IDF Hands-On",
       location: "AIC NITTE Incubation Centre",
       desc: "Intensive training on ESP32 development using ESP-IDF, strengthening skills in embedded programming and IoT.",
@@ -77,7 +86,7 @@ const Workshops = () => {
       image: esp32Img
     },
     {
-      id: 3,
+      id: 4,
       title: "First-Year Orientation",
       location: "ECE Department, SIT",
       desc: "A workshop introducing first-year students to the club with live demos of object-following and humanoid robots.",
@@ -85,6 +94,9 @@ const Workshops = () => {
       image: orientationImg
     }
   ];
+
+
+
 
   // Animation variants for the Grid
   const gridVariants = {

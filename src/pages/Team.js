@@ -18,6 +18,12 @@ import mohithImg from '../assets/students/mohith.png';
 import bhavanaImg from '../assets/students/bhavana.png';
 import ashwinImg from '../assets/students/ashwin.png';
 import likhithaImg from '../assets/students/likhitha.png';
+import abhijnyaImg from '../assets/students/abhijnyaImg.jpeg';
+import inchanaImg from '../assets/students/inchanaImg.jpeg';
+import adarshImg from '../assets/students/adarshImg.jpeg';
+import varshanImg from '../assets/students/varshanImg.jpeg';
+import sharathImg from '../assets/students/sharathImg.jpeg';
+import varunImg from '../assets/students/varunImg.jpeg';
 
 // --- HELPER COMPONENT: LetterStagger Animation ---
 const LetterStagger = ({ text }) => {
@@ -71,25 +77,129 @@ const LetterStagger = ({ text }) => {
 
 const Team = () => {
   const mentors = [
-    { name: "Dr. Soorya Krishna K", role: "Faculty Mentor", title: "HOD, Dept. of ECE, SIT", info: "Ph.D. with 18 years of teaching experience; specialist in VLSI and IoT.", image: mentor3 },
-    { name: "Shailesh S Shetty", role: "Faculty Mentor", title: "HOD, Dept. of CS & Business System, SIT", info: "M.Tech in Computer Engineering; expert in ML, AI, and Blockchain.", image: mentor2 },
-    { name: "Aditya R Poonja", role: "Industry Mentor", title: "SWE, K-Tech Mangalore", info: "5+ years of Deep-Tech experience; focused on Startup Growth and AI/ML.", image: mentor1 }
+    {
+      name: "Dr. Soorya Krishna K",
+      role: "Faculty Mentor",
+      title: "HOD, Dept. of ECE, SIT",
+      info: "Ph.D. with 18 years of teaching experience; specialist in VLSI and IoT.",
+      image: mentor3
+    },
+    {
+      name: "Shailesh S Shetty",
+      role: "Faculty Mentor",
+      title: "HOD, Dept. of CS & Business System, SIT",
+      info: "M.Tech in Computer Engineering; expert in ML, AI, and Blockchain.",
+      image: mentor2
+    },
+    {
+      name: "Aditya R Poonja",
+      role: "Industry Mentor",
+      title: "SWE, K-Tech Mangalore",
+      info: "5+ years of Deep-Tech experience; focused on Startup Growth and AI/ML.",
+      image: mentor1
+    }
   ];
 
   const executive = [
-    { name: "Mahammad Safwan T", role: "President", focus: "Strategic Planning", image: safwanImg },
-    { name: "Shreeya S Shetty", role: "Joint Secretary", focus: "Administrative Coordination", image: shreeyaImg },
-    { name: "Pooja", role: "Joint Secretary", focus: "Club Operations", image: poojaImg }
+    {
+      name: "Mahammad Safwan T",
+      role: "President",
+      focus: "Strategic Planning",
+      image: safwanImg
+    },
+    {
+      name: "Abhijnya",
+      role: "Secretary",
+      focus: "Official Communication & Documentation",
+      image: abhijnyaImg
+    },
+    {
+      name: "Inchana",
+      role: "Treasurer",
+      focus: "Financial Management",
+      image: inchanaImg
+    },
+    {
+      name: "Shreeya S Shetty",
+      role: "Joint Secretary",
+      focus: "Administrative Coordination",
+      image: shreeyaImg
+    },
+    {
+      name: "Pooja",
+      role: "Joint Secretary",
+      focus: "Club Operations",
+      image: poojaImg
+    }
   ];
 
   const techLeads = [
-    { name: "Muktha", role: "Software Lead", dept: "AI & Embedded Systems", image: muktaImg },
-    { name: "Abhishek", role: "Electronics Lead", dept: "Hardware Design", image: abhishekImg },
-    { name: "Gangothri", role: "Software Co-Lead", dept: "Implementation", image: gangothriImg },
-    { name: "Mohith K U", role: "Documentation Lead", dept: "Technical Records", image: mohithImg },
-    { name: "Bhavana", role: "Documentation Co-Lead", dept: "Content Design", image: bhavanaImg },
-    { name: "Ashwin Bhat", role: "Workshop Coordinator", dept: "Hands-on Sessions", image: ashwinImg },
-    { name: "Likhitha S", role: "Event Coordinator", dept: "Logistics", image: likhithaImg }
+    {
+      name: "Muktha",
+      role: "Software Lead",
+      dept: "AI & Embedded Systems",
+      image: muktaImg
+    },
+    {
+      name: "Gangothri",
+      role: "Software Co-Lead",
+      dept: "Implementation",
+      image: gangothriImg
+    },
+    {
+      name: "Adarsh",
+      role: "Mechanical Lead",
+      dept: "Mechanical Systems",
+      image: adarshImg
+    },
+    {
+      name: "Varshan",
+      role: "Mechanical Co-Head",
+      dept: "Mechanical Systems",
+      image: varshanImg
+    },
+    {
+      name: "Abhishek",
+      role: "Electronics Lead",
+      dept: "Hardware Design",
+      image: abhishekImg
+    },
+    {
+      name: "Sharath",
+      role: "Hardware Co-Lead",
+      dept: "Hardware Design",
+      image: sharathImg
+    },
+    {
+      name: "Mohith K U",
+      role: "Documentation Lead",
+      dept: "Technical Records",
+      image: mohithImg
+    },
+    {
+      name: "Bhavana",
+      role: "Documentation Co-Lead",
+      dept: "Content Design",
+      image: bhavanaImg
+    },
+    {
+      name: "Varun",
+      role: "Media Co-Lead",
+      dept: "Media & Outreach",
+      image: varunImg
+    },
+    {
+      name: "Ashwin Bhat",
+      role: "Workshop Coordinator",
+      dept: "Hands-on Sessions",
+      image: ashwinImg
+    },
+    {
+      name: "Likhitha S",
+      role: "Event Coordinator",
+      dept: "Logistics",
+      image: likhithaImg
+    }
   ];
 
   // Animation Variants

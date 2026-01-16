@@ -67,7 +67,7 @@ const Header = () => {
           <Link to="/about" onClick={closeMenu}>About</Link>
           <Link to="/team" onClick={closeMenu}>Team</Link>
           <Link to="/projects" onClick={closeMenu}>Projects</Link>
-          <Link to="/workshops" onClick={closeMenu}>Workshop & Outreach</Link>
+          <Link to="/workshops" onClick={closeMenu}>Workshop & Events</Link>
           <Link to="/achievements" onClick={closeMenu}>Achievements</Link>
           <Link to="/contact" className="mobile-cta" onClick={closeMenu}>Join Us</Link>
         </div>

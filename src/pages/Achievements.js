@@ -8,6 +8,7 @@ import iitImg from '../assets/achievemnets/iit_madras.png';
 import infosysImg from '../assets/achievemnets/infosys.png';
 import sihImg from '../assets/achievemnets/sihImg.jpeg';
 import aigniteImg from '../assets/achievemnets/aignite.jpeg';
+import ainnovationImg from '../assets/achievemnets/ainnovationImg.jpeg';
 
 // --- HELPER COMPONENT: LetterStagger ---
 const LetterStagger = ({ text }) => {
@@ -44,42 +45,50 @@ const Achievements = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   
   const data = [
-    {
-      title: "First Prize – SRINATHON 2.0",
-      tag: "International Hackathon",
-      event: "Organized by SSOSC and Nexus",
-      desc: "Secured First Place in a 24-hour international-level hackathon, showcasing innovation, endurance, and technical excellence in a competitive environment.",
-      img: srinathonImg
-    },
-    {
-      title: "Top 40 Teams – Ideas to Impact 2.0",
-      tag: "National Recognition",
-      event: "IIT Madras",
-      desc: "Selected among the Top 40 teams nationwide for an AI-powered smart waste management solution using CNNs, gaining exposure to interdisciplinary collaboration.",
-      img: iitImg
-    },
-    {
-      title: "Project Representation",
-      tag: "Industry Showcase",
-      event: "Infosys DK Campus",
-      desc: "Proudly represented the LUNA semi-humanoid robot at the Infosys DK Campus, demonstrating advanced robotics integration to industry leaders.",
-      img: infosysImg
-    },
-    {
-      title: "Shortlisted for SIH 2025 Grand Finale",
-      tag: "Smart India Hackathon",
-      event: "Ministry of Fisheries, Animal Husbandry & Dairying",
-      desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
-      img: sihImg
-    },
-    {
-      title: "Participation – AIGNITE 2.0",
-      tag: "National Level Project Expo",
-      event: "AIGNITE 2.0",
-      desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation.",
-      img: aigniteImg
-    },
-  ];
+  {
+    title: "First Prize – SRINATHON 2.0",
+    tag: "International Hackathon",
+    event: "Organized by SSOSC and Nexus",
+    desc: "Secured First Place in a 24-hour international-level hackathon, showcasing innovation, endurance, and technical excellence in a competitive environment.",
+    img: srinathonImg
+  },
+  {
+    title: "Participation – AINNOVATION 2025_II (Code4Bharat)",
+    tag: "24-Hour National Hackathon",
+    event: "Kyndryl & Microsoft | Hosted by NMAMIT, Karkala",
+    desc: "Participated in AINNOVATION 2025_II – Code4Bharat, a 24-hour hackathon organized in collaboration with Kyndryl and Microsoft and hosted by NMAMIT, Karkala on 23rd & 24th September 2025, focusing on technology-driven solutions for national impact.",
+    img: ainnovationImg
+  },
+  {
+    title: "Top 40 Teams – Ideas to Impact 2.0",
+    tag: "National Recognition",
+    event: "IIT Madras",
+    desc: "Selected among the Top 40 teams nationwide for an AI-powered smart waste management solution using CNNs, gaining exposure to interdisciplinary collaboration.",
+    img: iitImg
+  },
+  {
+    title: "Project Representation",
+    tag: "Industry Showcase",
+    event: "Infosys DK Campus",
+    desc: "Proudly represented the LUNA semi-humanoid robot at the Infosys DK Campus, demonstrating advanced robotics integration to industry leaders.",
+    img: infosysImg
+  },
+  {
+    title: "Shortlisted for SIH 2025 Grand Finale",
+    tag: "Smart India Hackathon",
+    event: "Ministry of Fisheries, Animal Husbandry & Dairying",
+    desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
+    img: sihImg
+  },
+  {
+    title: "Participation – AIGNITE 2.0",
+    tag: "National Level Project Expo",
+    event: "AIGNITE 2.0",
+    desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation.",
+    img: aigniteImg
+  }
+];
+
 
   const idx = Math.abs(page % data.length);
 

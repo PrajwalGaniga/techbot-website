@@ -11,6 +11,8 @@ import linefollowerImg from '../assets/projects/linefollower.jpeg';
 import multihazardImg from '../assets/projects/multihazard.png';
 import robovitaImg from '../assets/projects/robovita1.png';
 import lunaV2 from '../assets/projects/lunav2.png';
+import loraWaterImg from '../assets/projects/loraWaterImg.jpeg';
+import retroConsoleImg from '../assets/projects/retroConsoleImg.jpeg';
 
 // --- HELPER COMPONENT: LetterStagger ---
 const LetterStagger = ({ text }) => {
@@ -79,9 +81,9 @@ const projectData = [
   },
   { 
     id: 6, 
-    title: "Soccer & Terrain bot", 
+    title: "Soccer & Terrain Bot", 
     tag: "Mobile Robotics", 
-    desc: " rugged mobile units focused on drivetrain mechanics. Features custom traction systems and low-latency wireless communication protocols for agile navigation.", 
+    desc: "Rugged mobile units focused on drivetrain mechanics. Features custom traction systems and low-latency wireless communication protocols for agile navigation.", 
     tech: ["Fabrication", "RF Comm", "Motor Drivers"], 
     img: soccerbotImg 
   },
@@ -95,13 +97,30 @@ const projectData = [
   },
   { 
     id: 8, 
-    title: "LUNA v2", 
+    title: "LUNA V2", 
     tag: "Integrated Robotics", 
-    desc: "A complete semi-humanoid system. Combines a custom 3D-printed mechanical chassis, Raspberry Pi computing core, and OpenAI-based LLM integration for natural voice interaction.", 
+    desc: "Next-generation semi-humanoid system. Enhances LUNA V1 with improved mechanical design, optimized AI interaction, and better onboard processing.", 
     tech: ["Mechanical Design", "Python", "LLMs", "Raspberry Pi"], 
     img: lunaV2 
+  },
+  { 
+    id: 9, 
+    title: "LoRa Water-Zone Monitor", 
+    tag: "Low-Power IoT", 
+    desc: "End-to-end LoRa-based remote water-zone monitoring system. Integrates ESP8266 nodes, environmental sensors, and SOS alerts with a real-time cloud dashboard for reliable long-range, low-power communication without GSM or internet dependency.", 
+    tech: ["LoRa", "ESP8266", "Cloud Dashboard", "Environmental Sensors"], 
+    img: loraWaterImg 
+  },
+  { 
+    id: 10, 
+    title: "Retro Gaming Console", 
+    tag: "Embedded Systems", 
+    desc: "A compact, menu-driven retro gaming console built on an ESP32 with an OLED display. Features multiple classic games controlled via physical buttons and a buzzer-based audio system.", 
+    tech: ["ESP32", "OLED Display", "Embedded C", "Game Logic"], 
+    img: retroConsoleImg 
   }
 ];
+
 
 const Projects = () => {
   const [activeIdx, setActiveIdx] = useState(0);
