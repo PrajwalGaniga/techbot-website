@@ -94,7 +94,7 @@ const Team = () => {
     {
       name: "Aditya R Poonja",
       role: "Industry Mentor",
-      title: "SWE, K-Tech Mangalore",
+      title: "BDE, AIC Nitte Incubation Centre",
       info: "5+ years of Deep-Tech experience; focused on Startup Growth and AI/ML.",
       image: mentor1
     }
