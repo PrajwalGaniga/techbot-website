@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="footer-brand">
           <div className="brand-header">
             <img src={clubLogo} alt="TechBots Logo" className="footer-logo" />
-            <h2>TECHBOTS<span>.</span></h2>
+            <h2>TECHBOTS-SIT<span>.</span></h2>
           </div>
           <p>
             A multidisciplinary engineering community where hardware and software come together to build complete, real-world systems.
@@ -58,7 +58,7 @@ const Footer = () => {
           
           {/* Email Button - Opens Default Mail App */}
           <a 
-            href="mailto:mahammadsafwant786@gmail.com" 
+            href="mailto:techbots.sit@gmail.com" 
             className="email-btn"
             target="_blank" 
             rel="noopener noreferrer"

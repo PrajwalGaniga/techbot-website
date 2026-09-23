@@ -76,6 +76,30 @@ const LetterStagger = ({ text }) => {
 };
 
 const Team = () => {
+  const coFounders = [
+    {
+      name: "Ashwin Bhat",
+      role: "Co-Founder",
+      title: "Workshop Coordinator",
+      info: "Hands-on Sessions",
+      image: ashwinImg
+    },
+    {
+      name: "Mahammad Safwan T",
+      role: "Co-Founder",
+      title: "President",
+      info: "Strategic Planning",
+      image: safwanImg
+    },
+    {
+      name: "Mohith K U",
+      role: "Co-Founder",
+      title: "Documentation Lead",
+      info: "Technical Records",
+      image: mohithImg
+    }
+  ];
+
   const mentors = [
     {
       name: "Dr. Soorya Krishna K",
@@ -85,14 +109,14 @@ const Team = () => {
       image: mentor3
     },
     {
-      name: "Shailesh S Shetty",
+      name: "Prof.Shailesh S Shetty",
       role: "Faculty Mentor",
       title: "HOD, Dept. of CS & Business System, SIT",
       info: "M.Tech in Computer Engineering; expert in ML, AI, and Blockchain.",
       image: mentor2
     },
     {
-      name: "Aditya R Poonja",
+      name: "Mr.Aditya R Poonja",
       role: "Industry Mentor",
       title: "BDE, AIC Nitte Incubation Centre",
       info: "5+ years of Deep-Tech experience; focused on Startup Growth and AI/ML.",
@@ -135,7 +159,7 @@ const Team = () => {
 
   const techLeads = [
     {
-      name: "Muktha",
+      name: "Mukta",
       role: "Software Lead",
       dept: "AI & Embedded Systems",
       image: muktaImg
@@ -246,6 +270,28 @@ const Team = () => {
             The collective intelligence driving innovation at Srinivas Institute of Technology.
           </motion.p>
         </div>
+      </section>
+
+      {/* CO-FOUNDER CARDS */}
+      <section className="team-tier cofounder-tier">
+        <h2 className="tier-title">Co-Founders</h2>
+        <motion.div 
+          className="mentor-grid cofounder-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {coFounders.map((founder, i) => (
+            <motion.div key={i} className="mentor-card" variants={cardVariants}>
+              <img src={founder.image} alt={founder.name} className="profile-photo" />
+              <div className="m-text">
+                <span className="m-tag">{founder.role}</span>
+                <h4>{founder.name}</h4>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
       {/* MENTOR CARDS */}

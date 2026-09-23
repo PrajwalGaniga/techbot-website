@@ -48,7 +48,7 @@ const Header = () => {
         <Link to="/" onClick={closeMenu}>
           <div className="logo-wrapper">
             <img src={clubLogo} alt="TechBots Logo" className="header-logo-img" />
-            <span className="brand-name">TECHBOTS<span>.</span></span>
+            <span className="brand-name">TECHBOTS-SIT<span>.</span></span>
           </div>
         </Link>
       </div>

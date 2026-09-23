@@ -151,14 +151,14 @@ const Home = () => {
     },
     {
       id: 2,
-      name: "Shailesh S Shetty",
+      name: "Prof.Shailesh S Shetty",
       role: "HOD, Dept. of CS & Business System, SIT",
       image: mentor2, 
       linkedin: "https://www.linkedin.com/in/shailesh-s-shetty-2b076b42/"
     },
     {
       id: 3,
-      name: "Aditya R Poonja",
+      name: "Mr.Aditya R Poonja",
       role: "BDE, AIC Nitte Incubation Centre",
       image: mentor1, 
       linkedin: "https://www.linkedin.com/in/aditya-ramanath-poonja/"
@@ -178,7 +178,7 @@ const Home = () => {
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
-          <h1 className="hero-title">TECHBOTS<span>.</span></h1>
+          <h1 className="hero-title">TECHBOTS-SIT<span>.</span></h1>
           
           <h2 className="hero-subtitle">
             <LetterStagger text="Building Complete Real-World Systems" />

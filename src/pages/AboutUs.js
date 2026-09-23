@@ -142,8 +142,8 @@ const AboutUs = () => {
 
   const mentorDetails = [
     { id: 1, name: "Dr. Soorya Krishna K", role: "ECE VLSI Enthusiast | Ph.D. NITK", bio: "Ph.D. in VLSI high speed interconnects. Specialist in Electronic Devices and IoT.", expertise: ["VLSI", "IoT"], image: mentor3 },
-    { id: 2, name: "Shailesh S Shetty", role: "Assistant Professor | M.Tech", bio: "Skilled in AI/ML, Blockchain, and Cyber Security. HOD of CS & Business Systems.", expertise: ["AI/ML", "Blockchain"], image: mentor2 },
-    { id: 3, name: "Aditya R Poonja", role: "Industry Mentor", bio: "SWE Specialist with Deep-Tech experience. Expertise in Robotics, AI, and Startup Growth.", expertise: ["Deep-Tech", "Robotics"], image: mentor1 }
+    { id: 2, name: "Prof.Shailesh S Shetty", role: "Assistant Professor | M.Tech", bio: "Skilled in AI/ML, Blockchain, and Cyber Security. HOD of CS & Business Systems.", expertise: ["AI/ML", "Blockchain"], image: mentor2 },
+    { id: 3, name: "Mr.Aditya R Poonja", role: "Industry Mentor", bio: "SWE Specialist with Deep-Tech experience. Expertise in Robotics, AI, and Startup Growth.", expertise: ["Deep-Tech", "Robotics"], image: mentor1 }
   ];
 
   return (
