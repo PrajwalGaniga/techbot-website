@@ -13,7 +13,8 @@ import robovitaImg from '../assets/projects/robovita1.png';
 import lunaV2 from '../assets/projects/lunav2.png';
 import loraWaterImg from '../assets/projects/loraWaterImg.jpeg';
 import retroConsoleImg from '../assets/projects/retroConsoleImg.jpeg';
-
+import ecoBinImg from '../assets/projects/ecobin.jpeg';
+import arecabotImg from '../assets/projects/arecabot.png';
 // --- HELPER COMPONENT: LetterStagger ---
 const LetterStagger = ({ text }) => {
   const letters = text.split("");
@@ -52,12 +53,12 @@ const projectData = [
     title: "Phylax", 
     tag: "IoT & Mobile Dev", 
     desc: "End-to-end security ecosystem. Integrates hardware biometric sensors (fingerprint) with a custom cross-platform mobile application for remote access control and logging.", 
-    tech: ["Embedded C", "Flutter App", "ESP32", "Biometrics"], 
+    tech: ["Embedded C",  "ESP32", "Biometrics"], 
     img: phylaxImg 
   },
   { 
     id: 3, 
-    title: "Multi-Hazard Monitor", 
+    title: "Multi-Hazard Detector", 
     tag: "Full-Stack IoT", 
     desc: "Real-time disaster management system. Hardware sensor nodes transmit critical data to a cloud-hosted React dashboard for instant visualization and alerts.", 
     tech: ["Cloud IoT", "React.js", "Firebase", "Sensors"], 
@@ -97,7 +98,7 @@ const projectData = [
   },
   { 
     id: 8, 
-    title: "LUNA V2", 
+    title: "LUNA  V2", 
     tag: "Integrated Robotics", 
     desc: "Next-generation semi-humanoid system. Enhances LUNA V1 with improved mechanical design, optimized AI interaction, and better onboard processing.", 
     tech: ["Mechanical Design", "Python", "LLMs", "Raspberry Pi"], 
@@ -118,6 +119,22 @@ const projectData = [
     desc: "A compact, menu-driven retro gaming console built on an ESP32 with an OLED display. Features multiple classic games controlled via physical buttons and a buzzer-based audio system.", 
     tech: ["ESP32", "OLED Display", "Embedded C", "Game Logic"], 
     img: retroConsoleImg 
+  },
+  { 
+    id: 11,
+    title: "Eco+ Bin",
+    tag: "AI & Embedded Systems",
+    desc: "An AI-powered smart waste segregation system that automatically classifies waste as dry or wet using a camera and deep learning model, then directs it into the appropriate bin using automated hardware control.",
+    tech: ["Raspberry Pi 5", "EfficientNetV2-S" , "Arduino Uno", "Computer Vision"],
+    img: ecoBinImg
+  },
+  { 
+    id: 12,
+    title: "ARECAbot",
+    tag: "Robotics & AI",
+    desc: "An autonomous agricultural robot designed to mechanize arecanut sun-drying by performing automated turning and redistribution through intelligent grid-based navigation, reliable communication, and AI-assisted drying-stage assessment.",
+    tech: ["4WD Robotics", "Finite State Machine", "CRC Protocol", "Wi-Fi Dashboard", "U-Net", "ResNet-50"],
+    img: arecabotImg
   }
 ];
 

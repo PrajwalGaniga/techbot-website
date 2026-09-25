@@ -132,7 +132,7 @@ const Team = () => {
       image: safwanImg
     },
     {
-      name: "Abhijnya",
+      name: "Abhijna",
       role: "Secretary",
       focus: "Official Communication & Documentation",
       image: abhijnyaImg
@@ -161,13 +161,13 @@ const Team = () => {
     {
       name: "Mukta",
       role: "Software Lead",
-      dept: "AI & Embedded Systems",
+      dept: "AI & ML ",
       image: muktaImg
     },
     {
       name: "Gangothri",
       role: "Software Co-Lead",
-      dept: "Implementation",
+      dept: "Embedded Systems",
       image: gangothriImg
     },
     {
@@ -178,7 +178,7 @@ const Team = () => {
     },
     {
       name: "Varshan",
-      role: "Mechanical Co-Head",
+      role: "Mechanical Co-Lead",
       dept: "Mechanical Systems",
       image: varshanImg
     },

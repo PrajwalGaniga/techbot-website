@@ -10,7 +10,7 @@ import srinathonImg from '../assets/achievemnets/srinathon.png';
 import iitImg from '../assets/achievemnets/iit_madras.png';
 import infosysImg from '../assets/achievemnets/infosys.png';
 import sihImg from '../assets/achievemnets/sihImg.jpeg';
-import aigniteImg from '../assets/achievemnets/aignite.jpeg';
+
 
 // --- HELPER COMPONENT: LetterStagger Animation ---
 // Provides the premium letter-by-letter reveal effect
@@ -55,47 +55,46 @@ const AboutUs = () => {
   // --- DATA ---
   const techStack = [
   { 
-    title: "Microcontrollers", 
-    items: ["ESP32", "STM32", "RISC-V", "Raspberry Pi"], 
+    title: "Embedded Systems", 
+    items: ["ESP32", "STM32", "RISC-V", "Raspberry Pi","Arduino IDE",
+      "PlatformIO",
+      "ESP-IDF",
+      "STM32CubeIDE",
+      "STM32CubeProgrammer"], 
     icon: "⚡" 
   },
   { 
     title: "Software & Web", 
-    items: ["React", "Dashboards", "REST APIs", "Cloud IoT"], 
+    items: ["React", "Dashboards", "REST APIs", "Cloud Computing","Full Stack"
+    ], 
     icon: "🌐" 
   },
   { 
-    title: "AI & Intelligence", 
-    items: ["CNNs", "Computer Vision", "Edge AI", "LLMs"], 
+    title: "AI & Machine Learning", 
+    items: ["CNNs", "Computer Vision", "Edge AI", "LLMs","Generative AI","AI Inference"], 
     icon: "🧠" 
   },
   { 
-    title: "Mechanical", 
+    title: "Prototyping and Fabrication", 
     items: ["3D Printing", "CAD Design", "Fabrication", "Motion Control"], 
     icon: "⚙️" 
   },
 
   // ✅ Added from Safwan's data (Filtered)
   { 
-    title: "IDEs & Development Tools", 
+    title: "Robotics Frameworks", 
     items: [
-      "Arduino IDE",
-      "VS Code",
-      "PlatformIO",
-      "ESP-IDF",
-      "STM32CubeIDE",
-      "STM32CubeProgrammer"
+      "ROS",
+      "Nav2",
+      "SLAM",
+     "Gazebo",
+      "RViz"
     ], 
     icon: "🛠️" 
   },
   { 
-    title: "Simulation & PCB Design", 
+    title: "PCB Design", 
     items: [
-      "ROS",
-      "Gazebo",
-      "Wokwi",
-      "Tinkercad",
-      "Cirkit Designer",
       "LTspice",
       "EasyEDA",
       "KiCad"
@@ -117,17 +116,16 @@ const AboutUs = () => {
     { title: "First Prize – SRINATHON 2.0", tag: "International Hackathon", event: "Organized by SSOSC and Nexus", desc: "Secured First Place in a 24-hour international-level hackathon.", img: srinathonImg },
     { title: "Top 40 Teams – Ideas to Impact 2.0", tag: "National Recognition", event: "IIT Madras", desc: "Selected among the Top 40 teams nationwide for an AI-powered smart waste management solution.", img: iitImg },
     { title: "Project Representation", tag: "Industry Showcase", event: "Infosys DK Campus", desc: "Proudly represented the LUNA semi-humanoid robot at Infosys.", img: infosysImg },
-    { title: "Shortlisted for SIH 2025", tag: "Smart India Hackathon", event: "Ministry of Fisheries", desc: "Shortlisted for the SIH 2025 Grand Finale for 'Digital Farm Management Portal'.", img: sihImg },
-    { title: "Participation – AIGNITE 2.0", tag: "National Project Expo", event: "AIGNITE 2.0", desc: "Presented innovative technical solutions and gained competitive exposure.", img: aigniteImg },
+    { title: "Top 5 Teams – SIH 2025", tag: "Smart India Hackathon", event: "Ministry of Fisheries", desc: "One of the Top 5 Teams in the SIH 2025 Grand Finale for 'Digital Farm Management Portal'.", img: sihImg },
   ];
 
   const faqs = [
     { q: "How do I join TechBots?", a: "We hold recruitment drives at the start of every academic year. It's open to all departments and years. Watch out for our announcements!" },
     { q: "Do I need prior experience?", a: "Not at all. We value passion and consistency over current skills. We teach everything from scratch through our mentorship program." },
     { q: "What domains can I work in?", a: "You can work in Electronics, Web Development, AI/ML, Mechanical Design, or a mix of all. We encourage cross-domain learning." },
-    { q: "What is the time commitment?", a: "We are an active working space. While hours are flexible, consistent participation in projects and weekly meets is expected for growth." },
-    { q: "Do we participate in hackathons?", a: "Yes! We actively participate in and win National-level hackathons like SIH, Srinathon, and various project expos." }
-  ];
+    { q: "What is the time commitment?", a: "We are an active working space. While hours are flexible, consistent participation in projects and weekly meets is expected for growth." }
+
+];
 
   // --- CAROUSEL LOGIC ---
   useEffect(() => {

@@ -7,8 +7,7 @@ import srinathonImg from '../assets/achievemnets/srinathon.png';
 import iitImg from '../assets/achievemnets/iit_madras.png';
 import infosysImg from '../assets/achievemnets/infosys.png';
 import sihImg from '../assets/achievemnets/sihImg.jpeg';
-import aigniteImg from '../assets/achievemnets/aignite.jpeg';
-import ainnovationImg from '../assets/achievemnets/ainnovationImg.jpeg';
+
 
 // --- HELPER COMPONENT: LetterStagger ---
 const LetterStagger = ({ text }) => {
@@ -53,13 +52,6 @@ const Achievements = () => {
     img: srinathonImg
   },
   {
-    title: "Participation – AINNOVATION 2025_II (Code4Bharat)",
-    tag: "24-Hour National Hackathon",
-    event: "Kyndryl & Microsoft | Hosted by NMAMIT, Karkala",
-    desc: "Participated in AINNOVATION 2025_II – Code4Bharat, a 24-hour hackathon organized in collaboration with Kyndryl and Microsoft and hosted by NMAMIT, Karkala on 23rd & 24th September 2025, focusing on technology-driven solutions for national impact.",
-    img: ainnovationImg
-  },
-  {
     title: "Top 40 Teams – Ideas to Impact 2.0",
     tag: "National Recognition",
     event: "IIT Madras",
@@ -74,18 +66,11 @@ const Achievements = () => {
     img: infosysImg
   },
   {
-    title: "Shortlisted for SIH 2025 Grand Finale",
+    title: "Top 5 Teams- SIH 2025 Grand Finale",
     tag: "Smart India Hackathon",
     event: "Ministry of Fisheries, Animal Husbandry & Dairying",
     desc: "Team System Crash from Srinivas Institute of Technology was shortlisted for the SIH 2025 Grand Finale. The team demonstrated innovation in agri-tech and biosecurity solutions at a national level.",
     img: sihImg
-  },
-  {
-    title: "Participation – AIGNITE 2.0",
-    tag: "National Level Project Expo",
-    event: "AIGNITE 2.0",
-    desc: "Members of TechBots_SIT actively participated in the AIGNITE 2.0 National Level Project Expo, presenting innovative technical solutions and gaining exposure to competitive project evaluation.",
-    img: aigniteImg
   }
 ];
 

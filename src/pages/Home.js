@@ -116,7 +116,7 @@ const Home = () => {
   const featuredProjects = [
     {
       id: 1,
-      title: "LUNA V2",
+      title: "LUNA V1 & V2",
       category: "Robotics & AI",
       description: "A semi-humanoid robot combining mechanical chassis design, Python-based AI, and LLM voice interaction.",
       tech: ["Raspberry Pi", "OpenAI SDK"]
@@ -130,11 +130,19 @@ const Home = () => {
     },
     {
       id: 3,
-      title: "Multi-Hazard Detector",
-      category: "IoT",
-      description: "End-to-end disaster monitoring system sending real-time sensor data to a cloud dashboard.",
-      tech: ["ESP8266", "Firebase"]
-    }
+      title: "Eco+ Bin",
+      category: "AI & Robotics",
+      description: "Smart AI-powered waste segregation system that classifies and automatically separates wet and dry waste.",
+      tech: ["Raspberry Pi 5", "EfficientNetV2-S"]
+    },
+    {
+  id: 4,
+  title: "ARECAbot",
+  category: "Robotics & AI",
+  description: "Autonomous agricultural robot that automates arecanut sun-drying through intelligent navigation, automated turning, and AI-based drying-stage assessment.",
+  tech: ["4WD Robotics", "Finite State Machine", "U-Net", "ResNet-50"]
+}
+
   ];
 
   const handleShuffle = () => {
@@ -178,7 +186,7 @@ const Home = () => {
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
-          <h1 className="hero-title">TECHBOTS-SIT<span>.</span></h1>
+          <h1 className="hero-title">TECHBOTS-SIT</h1>
           
           <h2 className="hero-subtitle">
             <LetterStagger text="Building Complete Real-World Systems" />
@@ -191,7 +199,7 @@ const Home = () => {
             transition={{ delay: 1, duration: 0.8 }}
           >
             TechBots-SIT is a multidisciplinary engineering community where hardware and software come together. 
-            We design electronics, embedded systems, AI, and web interfaces to build end-to-end solutions.
+            We design electronics,robotics, embedded systems, AI, and web interfaces to build end-to-end solutions.
           </motion.p>
           
           <motion.div 
@@ -224,7 +232,7 @@ const Home = () => {
               <li>
                 <span className="bullet-icon">⚙️</span>
                 <div>
-                  <strong>Hardware & Mechanics</strong>
+                  <strong>Hardware</strong>
                   <p>Design and fabrication, from 3D printed chassis to custom PCBs.</p>
                 </div>
               </li>
@@ -242,6 +250,13 @@ const Home = () => {
                   <p>Building web dashboards, mobile apps, and cloud integration.</p>
                 </div>
               </li>
+              <li> 
+               <span className="bullet-icon">🤖</span> 
+               <div> 
+                <strong>Robotics & Automation</strong> 
+                <p>Developing intelligent robotic systems, embedded solutions, and autonomous applications.</p> 
+               </div> 
+</li>
             </ul>
           </div>
 
